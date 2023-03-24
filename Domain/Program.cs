@@ -1,5 +1,3 @@
-using System.Data.Entity;
-
 namespace CopyBase.Domain
 {
     internal static class Program

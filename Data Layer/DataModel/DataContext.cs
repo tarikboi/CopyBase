@@ -8,6 +8,13 @@ namespace CopyBase.Data_Layer.DataModel
         {
 
         }
+
+        //EGT.mitDk database
         public DbSet<PayslipReceipt> PayslipReceipt { get; set; }
+        public DbSet<EGTTransmission> EGTTransmission { get; set; }
+
+
+        //MLE Core database
+
     }
 }
