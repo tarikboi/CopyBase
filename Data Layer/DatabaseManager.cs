@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CopyBase.Data_Layer.DataModel;
+using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
@@ -11,44 +13,23 @@ namespace CopyBase.Data_Layer
     {
         public static void CloneDatabase()
         {
-            string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=master;Integrated Security=True;";
-            string databaseName = "NewDatabaseName3";
-            string createDatabaseQuery = $"CREATE DATABASE {databaseName}";
-            
-            string newRestore =
-                $"RESTORE DATABASE {databaseName} FROM DISK = 'C:\\ClonedDatabases\\Clone.bak' WITH " +
-                $"MOVE 'MitDK' TO 'C:\\ClonedDatabases\\newclonefiles\\file.mdf', " +
-                $"MOVE 'MitDK_log' TO 'C:\\ClonedDatabases\\newclonefiles\\\\file2.ldf', " +
-                $"REPLACE, RECOVERY, STATS = 5;";
+            // Step 1: Install the required NuGet packages for Entity Framework Core and SQLite database provider
 
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                using (SqlCommand command = new SqlCommand(createDatabaseQuery, connection))
-                {
-                    try
-                    {
-                        connection.Open();
-                        command.ExecuteNonQuery();
-                        Console.WriteLine($"Database '{databaseName}' created successfully.");
-                    }
-                    catch (Exception ex)
-                    {
-                        Console.WriteLine($"Error creating database '{databaseName}': {ex.Message}");
-                    }
-                }
-            }
+            // Step 2: Create an instance of the DataContext class with the appropriate DbContextOptions
+            var optionsBuilder = new DbContextOptionsBuilder<DataContext>();
+            optionsBuilder.UseSqlite("Data Source=mydatabase.db");
+            using var dbContext = new DataContext(optionsBuilder.Options);
 
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                using (SqlCommand command = new SqlCommand(newRestore, connection))
-                {
-                    connection.Open();
-                    command.ExecuteNonQuery();
-                }
-            }
+            // Step 3: Call the DbContext.Database.EnsureCreated() method to create the database schema if it does not already exist
+            dbContext.Database.EnsureCreated();
+
+            // Step 4: Use the DbContext instance to add, modify, or delete data in the database as required
+            var payslipReceipt = new PayslipReceipt { EGTTransmissionId = 123, MessageId = "ABC" };
+            dbContext.PayslipReceipt.Add(payslipReceipt);
+            dbContext.SaveChanges();
+
+            // Step 5: Dispose of the DbContext instance when you are done using it
+            dbContext.Dispose();
         }
-
-
-
     }
 }
