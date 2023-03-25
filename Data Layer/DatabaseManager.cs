@@ -1,22 +1,17 @@
 ﻿using CopyBase.Data_Layer.DataModel;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 
 namespace CopyBase.Data_Layer
 {
     internal class DatabaseManager
     {
-        public static void CloneDatabase(string databaseToClone, string clonedDbName, string clonedDbDirectory)
+        public static void CloneDatabase(string databaseToClone, string clonedDbName, string clonedDbDirectory, string connectionString)
         {
-            //Create directory if it doesnt exist
-            Directory.CreateDirectory(clonedDbDirectory);
-            string fullDirectory = $"{clonedDbDirectory}\\{clonedDbName}.mdf";
-
-            string connectionString = $@"Data Source=(LocalDb)\MSSQLLocalDB;Initial Catalog={clonedDbName}.mdf; AttachDbFilename={fullDirectory};Integrated Security=True;";
-
             //Create an instance of the DataContext class with the appropriate DbContextOptions
             var optionsBuilder = new DbContextOptionsBuilder<DataContext>();
             optionsBuilder.UseSqlServer(connectionString);
-
+            
             using var dbContext = new DataContext(optionsBuilder.Options);
 
             //Call the DbContext.Database.EnsureCreated() method to create the database schema if it does not already exist
@@ -38,6 +33,20 @@ namespace CopyBase.Data_Layer
 
             MessageBox.Show("done");
         }
+
+        public static void DeleteClonedDatabase(string clonedDbName, string connectionString)
+        {
+            using var dbContext = new DbContext(new DbContextOptionsBuilder().UseSqlServer(connectionString).Options);
+
+            // Close all existing connections to the database
+            dbContext.Database.ExecuteSqlRaw($@"ALTER DATABASE [{clonedDbName}] SET SINGLE_USER WITH ROLLBACK IMMEDIATE");
+
+            // Drop the database
+            dbContext.Database.EnsureDeleted();
+
+            MessageBox.Show("deleted");
+        }
+
 
         public static void MigrateDataEGTmitdk(DataContext dbContext)
         {

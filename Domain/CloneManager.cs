@@ -11,7 +11,26 @@ namespace CopyBase.Domain
 
         public static void CloneDatabase(string databaseToClone, string clonedDbName, string clonedDbDirectory)
         {
-            DatabaseManager.CloneDatabase(databaseToClone, clonedDbName, clonedDbDirectory);
+            //Create directory if it doesnt exist
+            Directory.CreateDirectory(clonedDbDirectory);
+
+            //Set missing variables
+            string fullDirectory = $"{clonedDbDirectory}\\{clonedDbName}.mdf";
+            string connectionString = $@"Data Source=(LocalDb)\MSSQLLocalDB;Initial Catalog={clonedDbName};AttachDbFilename={fullDirectory};Integrated Security=True;";
+
+            //Clone database and create ClonedDatebase object for future use
+            DatabaseManager.CloneDatabase(databaseToClone, clonedDbName, fullDirectory, connectionString);
+            ClonedDatabase cd = new ClonedDatabase(databaseToClone, clonedDbName, fullDirectory, connectionString);
+        }
+
+        public static void DeleteClonedDatabase()
+        {
+            //Get variables
+            string clonedDbName = ClonedDatabase.ClonedDatabaseName;
+            string connectionString = ClonedDatabase.ConnectionString;
+
+            //Delete cloned database
+            DatabaseManager.DeleteClonedDatabase(clonedDbName,connectionString);
         }
     }
 }
