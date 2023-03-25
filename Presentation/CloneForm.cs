@@ -43,13 +43,17 @@ namespace CopyBase
             //Set user variables
             fullNameLabel.Text = User.fullName;
             emailLabel.Text = User.email;
+
+            //Set default db variables
+            clonedDbDirTextBox.Text = $"C:\\Users\\{User.username}\\AppData\\Local\\CopyBase";
         }
         
         private void cloneButton_Click(object sender, EventArgs e)
         {
             if (CloneManager.UserHasPermission(DbToCloneMenu.Text, User.email))
             {
-                CloneManager.CloneDatabase(DbToCloneMenu.Text);
+                //If all fields have text
+                CloneManager.CloneDatabase(DbToCloneMenu.Text,clonedDbNameTextBox.Text,clonedDbDirTextBox.Text);
             }
         }
 
@@ -109,6 +113,11 @@ namespace CopyBase
         }
 
         private void DbToCloneMenu_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            clonedDbNameTextBox.Text = DbToCloneMenu.Text + "Clone";
+        }
+
+        private void environmentTextBox_TextChanged(object sender, EventArgs e)
         {
 
         }

@@ -9,9 +9,9 @@ namespace CopyBase.Domain
             return true;
         }
 
-        public static void CloneDatabase(string text)
+        public static void CloneDatabase(string databaseToClone, string clonedDbName, string clonedDbDirectory)
         {
-            DatabaseManager.CloneDatabase();
+            DatabaseManager.CloneDatabase(databaseToClone, clonedDbName, clonedDbDirectory);
         }
     }
 }

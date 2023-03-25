@@ -33,8 +33,8 @@
             this.findDirectoryButton = new System.Windows.Forms.Button();
             this.emailLabel = new System.Windows.Forms.Label();
             this.fullNameLabel = new System.Windows.Forms.Label();
-            this.environmentTextBox = new System.Windows.Forms.TextBox();
-            this.environmentLabel = new System.Windows.Forms.Label();
+            this.clonedDbNameTextBox = new System.Windows.Forms.TextBox();
+            this.clonedDbNameLabel = new System.Windows.Forms.Label();
             this.clonedDbDirLabel = new System.Windows.Forms.Label();
             this.dbToCloneLabel = new System.Windows.Forms.Label();
             this.clonedDbDirTextBox = new System.Windows.Forms.TextBox();
@@ -48,8 +48,8 @@
             this.panel.Controls.Add(this.findDirectoryButton);
             this.panel.Controls.Add(this.emailLabel);
             this.panel.Controls.Add(this.fullNameLabel);
-            this.panel.Controls.Add(this.environmentTextBox);
-            this.panel.Controls.Add(this.environmentLabel);
+            this.panel.Controls.Add(this.clonedDbNameTextBox);
+            this.panel.Controls.Add(this.clonedDbNameLabel);
             this.panel.Controls.Add(this.clonedDbDirLabel);
             this.panel.Controls.Add(this.dbToCloneLabel);
             this.panel.Controls.Add(this.clonedDbDirTextBox);
@@ -64,12 +64,12 @@
             // 
             // DbToCloneMenu
             // 
+            this.DbToCloneMenu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.DbToCloneMenu.FormattingEnabled = true;
             this.DbToCloneMenu.Items.AddRange(new object[] {
-            "Salary",
-            "Empty",
-            "Empty"});
-            this.DbToCloneMenu.Location = new System.Drawing.Point(60, 200);
+            "EGT.mitDk",
+            "Salary"});
+            this.DbToCloneMenu.Location = new System.Drawing.Point(61, 205);
             this.DbToCloneMenu.Name = "DbToCloneMenu";
             this.DbToCloneMenu.Size = new System.Drawing.Size(333, 28);
             this.DbToCloneMenu.TabIndex = 10;
@@ -77,7 +77,7 @@
             // 
             // findDirectoryButton
             // 
-            this.findDirectoryButton.Location = new System.Drawing.Point(358, 274);
+            this.findDirectoryButton.Location = new System.Drawing.Point(357, 353);
             this.findDirectoryButton.Name = "findDirectoryButton";
             this.findDirectoryButton.Size = new System.Drawing.Size(48, 36);
             this.findDirectoryButton.TabIndex = 9;
@@ -106,28 +106,30 @@
             this.fullNameLabel.Text = "Name Holder";
             this.fullNameLabel.Click += new System.EventHandler(this.fullNameLabel_Click);
             // 
-            // environmentTextBox
+            // clonedDbNameTextBox
             // 
-            this.environmentTextBox.Location = new System.Drawing.Point(61, 365);
-            this.environmentTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.environmentTextBox.Name = "environmentTextBox";
-            this.environmentTextBox.Size = new System.Drawing.Size(332, 27);
-            this.environmentTextBox.TabIndex = 6;
+            this.clonedDbNameTextBox.AccessibleName = "";
+            this.clonedDbNameTextBox.Location = new System.Drawing.Point(60, 281);
+            this.clonedDbNameTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.clonedDbNameTextBox.Name = "clonedDbNameTextBox";
+            this.clonedDbNameTextBox.Size = new System.Drawing.Size(332, 27);
+            this.clonedDbNameTextBox.TabIndex = 6;
+            this.clonedDbNameTextBox.TextChanged += new System.EventHandler(this.environmentTextBox_TextChanged);
             // 
-            // environmentLabel
+            // clonedDbNameLabel
             // 
-            this.environmentLabel.AutoSize = true;
-            this.environmentLabel.Location = new System.Drawing.Point(61, 341);
-            this.environmentLabel.Name = "environmentLabel";
-            this.environmentLabel.Size = new System.Drawing.Size(92, 20);
-            this.environmentLabel.TabIndex = 5;
-            this.environmentLabel.Text = "Environment";
-            this.environmentLabel.Click += new System.EventHandler(this.label1_Click_1);
+            this.clonedDbNameLabel.AutoSize = true;
+            this.clonedDbNameLabel.Location = new System.Drawing.Point(60, 257);
+            this.clonedDbNameLabel.Name = "clonedDbNameLabel";
+            this.clonedDbNameLabel.Size = new System.Drawing.Size(167, 20);
+            this.clonedDbNameLabel.TabIndex = 5;
+            this.clonedDbNameLabel.Text = "Cloned Database Name";
+            this.clonedDbNameLabel.Click += new System.EventHandler(this.label1_Click_1);
             // 
             // clonedDbDirLabel
             // 
             this.clonedDbDirLabel.AutoSize = true;
-            this.clonedDbDirLabel.Location = new System.Drawing.Point(61, 259);
+            this.clonedDbDirLabel.Location = new System.Drawing.Point(60, 338);
             this.clonedDbDirLabel.Name = "clonedDbDirLabel";
             this.clonedDbDirLabel.Size = new System.Drawing.Size(188, 20);
             this.clonedDbDirLabel.TabIndex = 4;
@@ -137,7 +139,7 @@
             // dbToCloneLabel
             // 
             this.dbToCloneLabel.AutoSize = true;
-            this.dbToCloneLabel.Location = new System.Drawing.Point(61, 177);
+            this.dbToCloneLabel.Location = new System.Drawing.Point(62, 182);
             this.dbToCloneLabel.Name = "dbToCloneLabel";
             this.dbToCloneLabel.Size = new System.Drawing.Size(132, 20);
             this.dbToCloneLabel.TabIndex = 3;
@@ -146,7 +148,7 @@
             // 
             // clonedDbDirTextBox
             // 
-            this.clonedDbDirTextBox.Location = new System.Drawing.Point(61, 283);
+            this.clonedDbDirTextBox.Location = new System.Drawing.Point(60, 362);
             this.clonedDbDirTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.clonedDbDirTextBox.Name = "clonedDbDirTextBox";
             this.clonedDbDirTextBox.ReadOnly = true;
@@ -189,11 +191,11 @@
         private TextBox clonedDbDirTextBox;
         private Label dbToCloneLabel;
         private Label clonedDbDirLabel;
-        private Label environmentLabel;
-        private TextBox environmentTextBox;
         private Label fullNameLabel;
         private Label emailLabel;
         private Button findDirectoryButton;
         private ComboBox DbToCloneMenu;
+        private TextBox clonedDbNameTextBox;
+        private Label clonedDbNameLabel;
     }
 }
