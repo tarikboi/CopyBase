@@ -1,6 +1,10 @@
 ﻿using CopyBase.Data_Layer.DataModel;
+using CopyBase.Domain;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Diagnostics.Metrics;
 
 namespace CopyBase.Data_Layer
 {
@@ -11,44 +15,73 @@ namespace CopyBase.Data_Layer
             //Create an instance of the DataContext class with the appropriate DbContextOptions
             var optionsBuilder = new DbContextOptionsBuilder<DataContext>();
             optionsBuilder.UseSqlServer(connectionString);
-            
             using var dbContext = new DataContext(optionsBuilder.Options);
 
-            //Call the DbContext.Database.EnsureCreated() method to create the database schema if it does not already exist
+            //Call EnsureCreated() method to create the database schema
             dbContext.Database.EnsureCreated();
 
-            //Use DBContext to migrate data
+            //Use DBContext to seed data
             switch (databaseToClone)
             {
                 case "EGT.mitDk":
-                    MigrateDataEGTmitdk(dbContext);
+                    SeedDataEGTmitdk(dbContext);
                     break;
                 case "Salary":
-                    //MigrateDataSalary(dbContext);
+                    //SeedDataSalary(dbContext);
                     break;
             }
 
             //Save changes
             dbContext.SaveChanges();
 
+            string snapshotName = CreateSnapshot(clonedDbName,connectionString,clonedDbDirectory);
+            
+            ClonedDatabase cd = new ClonedDatabase(databaseToClone, clonedDbName, clonedDbDirectory, connectionString,snapshotName);
+
             MessageBox.Show("done");
         }
 
-        public static void DeleteClonedDatabase(string clonedDbName, string connectionString)
+        private static string CreateSnapshot(string clonedDbName, string connectionString,string clonedDbDirectory)
         {
-            using var dbContext = new DbContext(new DbContextOptionsBuilder().UseSqlServer(connectionString).Options);
+            // create a unique name for the snapshot database
+            string snapshotName = $"Snapshot_{clonedDbName}";
+            string fullPath = $"C:\\Users\\tarik.oksuz\\AppData\\Local\\CopyBase\\{snapshotName}.ss";
 
-            // Close all existing connections to the database
-            dbContext.Database.ExecuteSqlRaw($@"ALTER DATABASE [{clonedDbName}] SET SINGLE_USER WITH ROLLBACK IMMEDIATE");
+            string query = $"CREATE DATABASE {snapshotName} ON(NAME = {clonedDbName}, FILENAME ='{fullPath}') AS SNAPSHOT OF {clonedDbName}";
+            
 
-            // Drop the database
+            // create a connection to the master database
+            using var connection = new SqlConnection(connectionString);
+            connection.Open();
+
+            // create a command to create the snapshot database
+            using var command = new SqlCommand(query, connection);
+
+            // execute the command
+            command.ExecuteNonQuery();
+
+            return snapshotName;
+        }
+
+        public static void DeleteClonedDatabase()
+        {
+            using var dbContext = new DbContext(new DbContextOptionsBuilder().UseSqlServer(ClonedDatabase.ConnectionString).Options);
+
+            // Close all existing connections to the database and drop
+            dbContext.Database.ExecuteSqlRaw($@"ALTER DATABASE [{ClonedDatabase.ClonedDatabaseName}] SET SINGLE_USER WITH ROLLBACK IMMEDIATE");
             dbContext.Database.EnsureDeleted();
+
+            ClonedDatabase.Deactivate();
 
             MessageBox.Show("deleted");
         }
 
+        public static void ResetClonedDatabase()
+        {
+            //
+        }
 
-        public static void MigrateDataEGTmitdk(DataContext dbContext)
+        public static void SeedDataEGTmitdk(DataContext dbContext)
         {
             var EGTTransmissions = new List<EGTTransmission>
             {

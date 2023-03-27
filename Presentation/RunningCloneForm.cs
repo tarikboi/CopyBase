@@ -31,11 +31,28 @@ namespace CopyBase
         private void deleteCloneButton_Click(object sender, EventArgs e)
         {
             CloneManager.DeleteClonedDatabase();
+
+            //Switch to CloneForm
+            CloneForm cf = new CloneForm();
+            cf.StartPosition = FormStartPosition.Manual;
+            cf.Location = this.Location;
+            cf.Show();
+            this.Hide();
         }
 
         private void RunningCloneForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void openButton_Click(object sender, EventArgs e)
+        {
+            CloneManager.OpenClonedDatabase();
+        }
+
+        private void resetButton_Click(object sender, EventArgs e)
+        {
+            CloneManager.ResetClonedDatabase();
         }
     }
 }

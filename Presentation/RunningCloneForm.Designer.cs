@@ -106,6 +106,7 @@
             this.resetButton.TabIndex = 3;
             this.resetButton.Text = "Reset";
             this.resetButton.UseVisualStyleBackColor = true;
+            this.resetButton.Click += new System.EventHandler(this.resetButton_Click);
             // 
             // openButton
             // 
@@ -116,6 +117,7 @@
             this.openButton.TabIndex = 2;
             this.openButton.Text = "Open";
             this.openButton.UseVisualStyleBackColor = true;
+            this.openButton.Click += new System.EventHandler(this.openButton_Click);
             // 
             // label1
             // 

@@ -20,17 +20,30 @@ namespace CopyBase.Domain
 
             //Clone database and create ClonedDatebase object for future use
             DatabaseManager.CloneDatabase(databaseToClone, clonedDbName, fullDirectory, connectionString);
-            ClonedDatabase cd = new ClonedDatabase(databaseToClone, clonedDbName, fullDirectory, connectionString);
         }
-
+        
         public static void DeleteClonedDatabase()
         {
-            //Get variables
-            string clonedDbName = ClonedDatabase.ClonedDatabaseName;
-            string connectionString = ClonedDatabase.ConnectionString;
-
-            //Delete cloned database
-            DatabaseManager.DeleteClonedDatabase(clonedDbName,connectionString);
+            DatabaseManager.DeleteClonedDatabase();
         }
+
+        public static void ResetClonedDatabase()
+        {
+            DatabaseManager.ResetClonedDatabase();
+        }
+
+        public static void OpenClonedDatabase()
+        { 
+            // Replace this with the path to the SSMS executable on your machine
+            string ssmsPath = @"C:\Program Files (x86)\Microsoft SQL Server Management Studio 18\Common7\IDE\Ssms.exe";
+
+            // Create a command line argument string that includes the connection string
+            string arguments = $@"-S ""(localdb)\MSSQLLocalDB""";
+
+            // Start the SSMS process with the appropriate arguments
+            System.Diagnostics.Process.Start(ssmsPath, arguments);
+        }
+
+        
     }
 }
