@@ -143,5 +143,15 @@ namespace CopyBase
         {
 
         }
+
+        private void logoutButton_Click(object sender, EventArgs e)
+        {
+            //Switch to CloneForm
+            LoginForm lf = new LoginForm();
+            lf.StartPosition = FormStartPosition.Manual;
+            lf.Location = this.Location;
+            lf.Show();
+            this.Hide();
+        }
     }
 }

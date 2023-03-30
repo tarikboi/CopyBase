@@ -30,6 +30,7 @@
         {
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.mainPanel = new System.Windows.Forms.Panel();
+            this.incorrectLoginText = new System.Windows.Forms.Label();
             this.logoPlaceholder = new System.Windows.Forms.Label();
             this.rememberMeCheckBox = new System.Windows.Forms.CheckBox();
             this.passwordLabel = new System.Windows.Forms.Label();
@@ -37,7 +38,6 @@
             this.passwordTextBox = new System.Windows.Forms.TextBox();
             this.emailTextBox = new System.Windows.Forms.TextBox();
             this.loginButton = new System.Windows.Forms.Button();
-            this.incorrectLoginText = new System.Windows.Forms.Label();
             this.mainPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -63,6 +63,16 @@
             this.mainPanel.TabIndex = 0;
             this.mainPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.mainPanel_Paint);
             // 
+            // incorrectLoginText
+            // 
+            this.incorrectLoginText.AutoSize = true;
+            this.incorrectLoginText.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.incorrectLoginText.Location = new System.Drawing.Point(85, 421);
+            this.incorrectLoginText.Name = "incorrectLoginText";
+            this.incorrectLoginText.Size = new System.Drawing.Size(0, 23);
+            this.incorrectLoginText.TabIndex = 8;
+            this.incorrectLoginText.Click += new System.EventHandler(this.label1_Click_1);
+            // 
             // logoPlaceholder
             // 
             this.logoPlaceholder.AutoSize = true;
@@ -82,9 +92,10 @@
             this.rememberMeCheckBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.rememberMeCheckBox.Name = "rememberMeCheckBox";
             this.rememberMeCheckBox.Size = new System.Drawing.Size(200, 39);
-            this.rememberMeCheckBox.TabIndex = 6;
+            this.rememberMeCheckBox.TabIndex = 2;
             this.rememberMeCheckBox.Text = "Remember me";
             this.rememberMeCheckBox.UseVisualStyleBackColor = true;
+            this.rememberMeCheckBox.CheckedChanged += new System.EventHandler(this.rememberMeCheckBox_CheckedChanged);
             // 
             // passwordLabel
             // 
@@ -115,8 +126,8 @@
             this.passwordTextBox.MaxLength = 30;
             this.passwordTextBox.Name = "passwordTextBox";
             this.passwordTextBox.Size = new System.Drawing.Size(398, 41);
-            this.passwordTextBox.TabIndex = 2;
-            this.passwordTextBox.TabStop = false;
+            this.passwordTextBox.TabIndex = 1;
+            this.passwordTextBox.UseSystemPasswordChar = true;
             this.passwordTextBox.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // emailTextBox
@@ -127,7 +138,7 @@
             this.emailTextBox.MaxLength = 30;
             this.emailTextBox.Name = "emailTextBox";
             this.emailTextBox.Size = new System.Drawing.Size(398, 41);
-            this.emailTextBox.TabIndex = 1;
+            this.emailTextBox.TabIndex = 0;
             this.emailTextBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged_1);
             // 
             // loginButton
@@ -139,20 +150,10 @@
             this.loginButton.Margin = new System.Windows.Forms.Padding(31, 0, 31, 36);
             this.loginButton.Name = "loginButton";
             this.loginButton.Size = new System.Drawing.Size(399, 67);
-            this.loginButton.TabIndex = 0;
+            this.loginButton.TabIndex = 3;
             this.loginButton.Text = "Login";
             this.loginButton.UseVisualStyleBackColor = true;
             this.loginButton.Click += new System.EventHandler(this.loginButton_Click);
-            // 
-            // incorrectLoginText
-            // 
-            this.incorrectLoginText.AutoSize = true;
-            this.incorrectLoginText.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.incorrectLoginText.Location = new System.Drawing.Point(85, 421);
-            this.incorrectLoginText.Name = "incorrectLoginText";
-            this.incorrectLoginText.Size = new System.Drawing.Size(0, 23);
-            this.incorrectLoginText.TabIndex = 8;
-            this.incorrectLoginText.Click += new System.EventHandler(this.label1_Click_1);
             // 
             // LoginForm
             // 

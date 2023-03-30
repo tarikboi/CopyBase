@@ -12,9 +12,8 @@ namespace CopyBase
 
         private void LoginForm_Load(object sender, EventArgs e)
         {
-
+            incorrectLoginText.Text = "";
         }
-
 
         private void loginButton_Click(object sender, EventArgs e)
         {
@@ -76,6 +75,11 @@ namespace CopyBase
         }
 
         private void label1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void rememberMeCheckBox_CheckedChanged(object sender, EventArgs e)
         {
 
         }

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel = new System.Windows.Forms.Panel();
+            this.logoutButton = new System.Windows.Forms.Button();
             this.allFieldsErrorLabel = new System.Windows.Forms.Label();
             this.DbToCloneMenu = new System.Windows.Forms.ComboBox();
             this.findDirectoryButton = new System.Windows.Forms.Button();
@@ -45,6 +46,7 @@
             // 
             // panel
             // 
+            this.panel.Controls.Add(this.logoutButton);
             this.panel.Controls.Add(this.allFieldsErrorLabel);
             this.panel.Controls.Add(this.DbToCloneMenu);
             this.panel.Controls.Add(this.findDirectoryButton);
@@ -63,6 +65,16 @@
             this.panel.Size = new System.Drawing.Size(461, 579);
             this.panel.TabIndex = 0;
             this.panel.Paint += new System.Windows.Forms.PaintEventHandler(this.panel_Paint);
+            // 
+            // logoutButton
+            // 
+            this.logoutButton.Location = new System.Drawing.Point(357, 24);
+            this.logoutButton.Name = "logoutButton";
+            this.logoutButton.Size = new System.Drawing.Size(76, 36);
+            this.logoutButton.TabIndex = 5;
+            this.logoutButton.Text = "Logout";
+            this.logoutButton.UseVisualStyleBackColor = true;
+            this.logoutButton.Click += new System.EventHandler(this.logoutButton_Click);
             // 
             // allFieldsErrorLabel
             // 
@@ -83,7 +95,7 @@
             this.DbToCloneMenu.Location = new System.Drawing.Point(61, 205);
             this.DbToCloneMenu.Name = "DbToCloneMenu";
             this.DbToCloneMenu.Size = new System.Drawing.Size(333, 28);
-            this.DbToCloneMenu.TabIndex = 10;
+            this.DbToCloneMenu.TabIndex = 1;
             this.DbToCloneMenu.SelectedIndexChanged += new System.EventHandler(this.DbToCloneMenu_SelectedIndexChanged);
             // 
             // findDirectoryButton
@@ -99,7 +111,7 @@
             // emailLabel
             // 
             this.emailLabel.AutoSize = true;
-            this.emailLabel.Location = new System.Drawing.Point(113, 70);
+            this.emailLabel.Location = new System.Drawing.Point(83, 70);
             this.emailLabel.Name = "emailLabel";
             this.emailLabel.Size = new System.Drawing.Size(175, 20);
             this.emailLabel.TabIndex = 8;
@@ -110,7 +122,7 @@
             // 
             this.fullNameLabel.AutoSize = true;
             this.fullNameLabel.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.fullNameLabel.Location = new System.Drawing.Point(103, 24);
+            this.fullNameLabel.Location = new System.Drawing.Point(73, 24);
             this.fullNameLabel.Name = "fullNameLabel";
             this.fullNameLabel.Size = new System.Drawing.Size(220, 46);
             this.fullNameLabel.TabIndex = 7;
@@ -124,7 +136,7 @@
             this.clonedDbNameTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.clonedDbNameTextBox.Name = "clonedDbNameTextBox";
             this.clonedDbNameTextBox.Size = new System.Drawing.Size(332, 27);
-            this.clonedDbNameTextBox.TabIndex = 6;
+            this.clonedDbNameTextBox.TabIndex = 2;
             this.clonedDbNameTextBox.TextChanged += new System.EventHandler(this.environmentTextBox_TextChanged);
             // 
             // clonedDbNameLabel
@@ -164,7 +176,7 @@
             this.clonedDbDirTextBox.Name = "clonedDbDirTextBox";
             this.clonedDbDirTextBox.ReadOnly = true;
             this.clonedDbDirTextBox.Size = new System.Drawing.Size(291, 27);
-            this.clonedDbDirTextBox.TabIndex = 2;
+            this.clonedDbDirTextBox.TabIndex = 3;
             this.clonedDbDirTextBox.TextChanged += new System.EventHandler(this.clonedDbDirTextBox_TextChanged);
             // 
             // cloneButton
@@ -173,7 +185,7 @@
             this.cloneButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cloneButton.Name = "cloneButton";
             this.cloneButton.Size = new System.Drawing.Size(333, 52);
-            this.cloneButton.TabIndex = 0;
+            this.cloneButton.TabIndex = 4;
             this.cloneButton.Text = "Clone";
             this.cloneButton.UseVisualStyleBackColor = true;
             this.cloneButton.Click += new System.EventHandler(this.cloneButton_Click);
@@ -209,5 +221,6 @@
         private TextBox clonedDbNameTextBox;
         private Label clonedDbNameLabel;
         private Label allFieldsErrorLabel;
+        private Button logoutButton;
     }
 }

@@ -35,7 +35,7 @@
             this.logsButton = new System.Windows.Forms.Button();
             this.resetButton = new System.Windows.Forms.Button();
             this.openButton = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.label = new System.Windows.Forms.Label();
             this.ClonedDbPath = new System.Windows.Forms.TextBox();
             this.panel.SuspendLayout();
             this.SuspendLayout();
@@ -48,7 +48,7 @@
             this.panel.Controls.Add(this.logsButton);
             this.panel.Controls.Add(this.resetButton);
             this.panel.Controls.Add(this.openButton);
-            this.panel.Controls.Add(this.label1);
+            this.panel.Controls.Add(this.label);
             this.panel.Controls.Add(this.ClonedDbPath);
             this.panel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel.Location = new System.Drawing.Point(0, 0);
@@ -119,15 +119,16 @@
             this.openButton.UseVisualStyleBackColor = true;
             this.openButton.Click += new System.EventHandler(this.openButton_Click);
             // 
-            // label1
+            // label
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(49, 181);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(396, 23);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Database successfully cloned to environment: local";
+            this.label.AutoSize = true;
+            this.label.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label.Location = new System.Drawing.Point(97, 202);
+            this.label.Name = "label";
+            this.label.Size = new System.Drawing.Size(281, 23);
+            this.label.TabIndex = 1;
+            this.label.Text = "Database successfully cloned locally";
+            this.label.Click += new System.EventHandler(this.label1_Click);
             // 
             // ClonedDbPath
             // 
@@ -136,7 +137,7 @@
             this.ClonedDbPath.Name = "ClonedDbPath";
             this.ClonedDbPath.ReadOnly = true;
             this.ClonedDbPath.Size = new System.Drawing.Size(388, 27);
-            this.ClonedDbPath.TabIndex = 0;
+            this.ClonedDbPath.TabIndex = 10;
             this.ClonedDbPath.TextChanged += new System.EventHandler(this.ClonedDbPath_TextChanged);
             // 
             // RunningCloneForm
@@ -161,7 +162,7 @@
         private Panel panel;
         private TextBox ClonedDbPath;
         private Button openButton;
-        private Label label1;
+        private Label label;
         private Button logsButton;
         private Button resetButton;
         private Button deleteCloneButton;

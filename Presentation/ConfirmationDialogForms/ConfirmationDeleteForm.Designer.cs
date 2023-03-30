@@ -34,43 +34,46 @@
             this.deleteDatabaseLabel = new System.Windows.Forms.Label();
             this.deleteButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.deleteDescriptionLabel);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(349, 237);
+            this.panel1.Size = new System.Drawing.Size(399, 316);
             this.panel1.TabIndex = 0;
             // 
             // deleteDescriptionLabel
             // 
             this.deleteDescriptionLabel.AutoSize = true;
-            this.deleteDescriptionLabel.Location = new System.Drawing.Point(59, 87);
+            this.deleteDescriptionLabel.Location = new System.Drawing.Point(70, 116);
             this.deleteDescriptionLabel.Name = "deleteDescriptionLabel";
-            this.deleteDescriptionLabel.Size = new System.Drawing.Size(236, 30);
+            this.deleteDescriptionLabel.Size = new System.Drawing.Size(269, 40);
             this.deleteDescriptionLabel.TabIndex = 7;
-            this.deleteDescriptionLabel.Text = "Are you sure you want to delete the cloned \r\ndatabase? All data will be permanent" +
-    "ly lost.";
+            this.deleteDescriptionLabel.Text = "Are you sure you want to proceed? This\r\naction will delete all data.";
             this.deleteDescriptionLabel.Click += new System.EventHandler(this.deleteDescriptionLabel_Click);
             // 
             // deleteDatabaseLabel
             // 
             this.deleteDatabaseLabel.AutoSize = true;
             this.deleteDatabaseLabel.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.deleteDatabaseLabel.Location = new System.Drawing.Point(95, 30);
+            this.deleteDatabaseLabel.Location = new System.Drawing.Point(109, 40);
             this.deleteDatabaseLabel.Name = "deleteDatabaseLabel";
-            this.deleteDatabaseLabel.Size = new System.Drawing.Size(167, 25);
+            this.deleteDatabaseLabel.Size = new System.Drawing.Size(207, 32);
             this.deleteDatabaseLabel.TabIndex = 6;
             this.deleteDatabaseLabel.Text = "DELETE DATABASE";
             this.deleteDatabaseLabel.Click += new System.EventHandler(this.deleteDatabaseLabel_Click);
             // 
             // deleteButton
             // 
-            this.deleteButton.Location = new System.Drawing.Point(193, 172);
+            this.deleteButton.Location = new System.Drawing.Point(221, 229);
+            this.deleteButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.deleteButton.Name = "deleteButton";
-            this.deleteButton.Size = new System.Drawing.Size(128, 35);
+            this.deleteButton.Size = new System.Drawing.Size(146, 47);
             this.deleteButton.TabIndex = 5;
             this.deleteButton.Text = "Delete";
             this.deleteButton.UseVisualStyleBackColor = true;
@@ -78,26 +81,30 @@
             // 
             // cancelButton
             // 
-            this.cancelButton.Location = new System.Drawing.Point(28, 172);
+            this.cancelButton.Location = new System.Drawing.Point(32, 229);
+            this.cancelButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cancelButton.Name = "cancelButton";
-            this.cancelButton.Size = new System.Drawing.Size(128, 35);
+            this.cancelButton.Size = new System.Drawing.Size(146, 47);
             this.cancelButton.TabIndex = 4;
             this.cancelButton.Text = "Cancel";
             this.cancelButton.UseVisualStyleBackColor = true;
             this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
             // 
-            // ConfirmationExitForm
+            // ConfirmationDeleteForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(349, 237);
-            this.Controls.Add(this.deleteDescriptionLabel);
+            this.ClientSize = new System.Drawing.Size(399, 316);
             this.Controls.Add(this.deleteDatabaseLabel);
             this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.panel1);
-            this.Name = "ConfirmationExitForm";
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Name = "ConfirmationDeleteForm";
             this.Text = "ConfirmationExitForm";
+            this.Load += new System.EventHandler(this.ConfirmationDeleteForm_Load);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 

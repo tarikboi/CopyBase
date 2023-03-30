@@ -20,22 +20,16 @@ namespace CopyBase.Domain
 
             //Clone database and create ClonedDatebase object for future use
             DatabaseManager.CloneDatabase(databaseToClone, clonedDbName, fullDirectory, connectionString);
-
-            MessageBox.Show("Cloned");
         }
         
         public static void DeleteClonedDatabase()
         {
             DatabaseManager.DeleteClonedDatabase();
-
-            MessageBox.Show("Deleted");
         }
 
         public static void ResetClonedDatabase()
         {
             DatabaseManager.ResetClonedDatabase();
-
-            MessageBox.Show("Reset");
         }
 
         public static void OpenClonedDatabase()
