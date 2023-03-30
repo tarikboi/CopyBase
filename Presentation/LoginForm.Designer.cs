@@ -37,6 +37,7 @@
             this.passwordTextBox = new System.Windows.Forms.TextBox();
             this.emailTextBox = new System.Windows.Forms.TextBox();
             this.loginButton = new System.Windows.Forms.Button();
+            this.incorrectLoginText = new System.Windows.Forms.Label();
             this.mainPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -46,6 +47,7 @@
             // 
             // mainPanel
             // 
+            this.mainPanel.Controls.Add(this.incorrectLoginText);
             this.mainPanel.Controls.Add(this.logoPlaceholder);
             this.mainPanel.Controls.Add(this.rememberMeCheckBox);
             this.mainPanel.Controls.Add(this.passwordLabel);
@@ -142,6 +144,16 @@
             this.loginButton.UseVisualStyleBackColor = true;
             this.loginButton.Click += new System.EventHandler(this.loginButton_Click);
             // 
+            // incorrectLoginText
+            // 
+            this.incorrectLoginText.AutoSize = true;
+            this.incorrectLoginText.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.incorrectLoginText.Location = new System.Drawing.Point(85, 421);
+            this.incorrectLoginText.Name = "incorrectLoginText";
+            this.incorrectLoginText.Size = new System.Drawing.Size(0, 23);
+            this.incorrectLoginText.TabIndex = 8;
+            this.incorrectLoginText.Click += new System.EventHandler(this.label1_Click_1);
+            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -171,5 +183,6 @@
         private Label passwordLabel;
         private Label logoPlaceholder;
         private CheckBox rememberMeCheckBox;
+        private Label incorrectLoginText;
     }
 }

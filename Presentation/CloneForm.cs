@@ -46,6 +46,9 @@ namespace CopyBase
 
             //Set default db variables
             clonedDbDirTextBox.Text = $"C:\\Users\\{User.Username}\\AppData\\Local\\CopyBase";
+
+            //Other variables
+            allFieldsErrorLabel.Text = "";
         }
         
         private void cloneButton_Click(object sender, EventArgs e)
@@ -53,15 +56,21 @@ namespace CopyBase
             if (CloneManager.UserHasPermission(DbToCloneMenu.Text, User.Email))
             {
                 //Check if all fields have text
+                if (DbToCloneMenu.Text.Equals("") || clonedDbNameTextBox.Text.Equals("") || clonedDbDirTextBox.Text.Equals(""))
+                {
+                    allFieldsErrorLabel.Text = @"All fields must have a value!";
+                }
+                else
+                {
+                    CloneManager.CloneDatabase(DbToCloneMenu.Text, clonedDbNameTextBox.Text, clonedDbDirTextBox.Text);
 
-                CloneManager.CloneDatabase(DbToCloneMenu.Text,clonedDbNameTextBox.Text,clonedDbDirTextBox.Text);
-
-                //Switch to RunningCloneForm
-                RunningCloneForm rcf = new RunningCloneForm();
-                rcf.StartPosition = FormStartPosition.Manual;
-                rcf.Location = this.Location;
-                rcf.Show();
-                this.Hide();
+                    //Switch to RunningCloneForm
+                    RunningCloneForm rcf = new RunningCloneForm();
+                    rcf.StartPosition = FormStartPosition.Manual;
+                    rcf.Location = this.Location;
+                    rcf.Show();
+                    this.Hide();
+                }
             }
         }
 
@@ -126,6 +135,11 @@ namespace CopyBase
         }
 
         private void environmentTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void allFieldsErrorLabel_Click(object sender, EventArgs e)
         {
 
         }

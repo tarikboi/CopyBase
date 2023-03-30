@@ -36,7 +36,8 @@ namespace CopyBase
             }
             else
             {
-                // handle wrong credentials
+                incorrectLoginText.ForeColor = Color.Red;
+                incorrectLoginText.Text = @"The email or password is incorrect!";
             }
         }
 
@@ -70,6 +71,11 @@ namespace CopyBase
         }
 
         private void mainPanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label1_Click_1(object sender, EventArgs e)
         {
 
         }

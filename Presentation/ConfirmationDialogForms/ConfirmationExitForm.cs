@@ -17,22 +17,12 @@ namespace CopyBase.Presentation
             InitializeComponent();
         }
 
-        private void deleteDatabaseLabel_Click(object sender, EventArgs e)
+        private void label1_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void deleteDescriptionLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void deleteButton_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cancelButton_Click(object sender, EventArgs e)
+        private void label1_Click_1(object sender, EventArgs e)
         {
 
         }

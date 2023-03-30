@@ -7,17 +7,15 @@
         public static string ClonedDatabaseDirectory { get; set; }
         public static string ConnectionString { get; set; }
         public static bool Active { get; set; }
-        public static string SnapshotName { get; set; }
 
 
-        public ClonedDatabase(string databaseToClone, string clonedDatabaseName, string clonedDatabaseDirectory, string connectionString,string snapshotName)
+        public ClonedDatabase(string databaseToClone, string clonedDatabaseName, string clonedDatabaseDirectory, string connectionString)
         {
             DatabaseToClone = databaseToClone;
             ClonedDatabaseName = clonedDatabaseName;
             ClonedDatabaseDirectory = clonedDatabaseDirectory;
             ConnectionString = connectionString;
             Active = true;
-            SnapshotName = snapshotName;
         }
 
         //Used when cloned database is deleted

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel = new System.Windows.Forms.Panel();
+            this.allFieldsErrorLabel = new System.Windows.Forms.Label();
             this.DbToCloneMenu = new System.Windows.Forms.ComboBox();
             this.findDirectoryButton = new System.Windows.Forms.Button();
             this.emailLabel = new System.Windows.Forms.Label();
@@ -44,6 +45,7 @@
             // 
             // panel
             // 
+            this.panel.Controls.Add(this.allFieldsErrorLabel);
             this.panel.Controls.Add(this.DbToCloneMenu);
             this.panel.Controls.Add(this.findDirectoryButton);
             this.panel.Controls.Add(this.emailLabel);
@@ -61,6 +63,15 @@
             this.panel.Size = new System.Drawing.Size(461, 579);
             this.panel.TabIndex = 0;
             this.panel.Paint += new System.Windows.Forms.PaintEventHandler(this.panel_Paint);
+            // 
+            // allFieldsErrorLabel
+            // 
+            this.allFieldsErrorLabel.AutoSize = true;
+            this.allFieldsErrorLabel.Location = new System.Drawing.Point(113, 431);
+            this.allFieldsErrorLabel.Name = "allFieldsErrorLabel";
+            this.allFieldsErrorLabel.Size = new System.Drawing.Size(0, 20);
+            this.allFieldsErrorLabel.TabIndex = 11;
+            this.allFieldsErrorLabel.Click += new System.EventHandler(this.allFieldsErrorLabel_Click);
             // 
             // DbToCloneMenu
             // 
@@ -197,5 +208,6 @@
         private ComboBox DbToCloneMenu;
         private TextBox clonedDbNameTextBox;
         private Label clonedDbNameLabel;
+        private Label allFieldsErrorLabel;
     }
 }

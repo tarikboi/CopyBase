@@ -34,33 +34,8 @@ namespace CopyBase.Data_Layer
             //Save changes
             dbContext.SaveChanges();
 
-            string snapshotName = CreateSnapshot(clonedDbName,connectionString,clonedDbDirectory);
-            
-            ClonedDatabase cd = new ClonedDatabase(databaseToClone, clonedDbName, clonedDbDirectory, connectionString,snapshotName);
+            ClonedDatabase cd = new ClonedDatabase(databaseToClone, clonedDbName, clonedDbDirectory, connectionString);
 
-            MessageBox.Show("done");
-        }
-
-        private static string CreateSnapshot(string clonedDbName, string connectionString,string clonedDbDirectory)
-        {
-            // create a unique name for the snapshot database
-            string snapshotName = $"Snapshot_{clonedDbName}";
-            string fullPath = $"C:\\Users\\tarik.oksuz\\AppData\\Local\\CopyBase\\{snapshotName}.ss";
-
-            string query = $"CREATE DATABASE {snapshotName} ON(NAME = {clonedDbName}, FILENAME ='{fullPath}') AS SNAPSHOT OF {clonedDbName}";
-            
-
-            // create a connection to the master database
-            using var connection = new SqlConnection(connectionString);
-            connection.Open();
-
-            // create a command to create the snapshot database
-            using var command = new SqlCommand(query, connection);
-
-            // execute the command
-            command.ExecuteNonQuery();
-
-            return snapshotName;
         }
 
         public static void DeleteClonedDatabase()
@@ -72,13 +47,17 @@ namespace CopyBase.Data_Layer
             dbContext.Database.EnsureDeleted();
 
             ClonedDatabase.Deactivate();
-
-            MessageBox.Show("deleted");
         }
-
+        
         public static void ResetClonedDatabase()
         {
-            //
+            string databaseToClone = ClonedDatabase.DatabaseToClone;
+            string clonedDbName = ClonedDatabase.ClonedDatabaseName;
+            string clonedDbDirectory = ClonedDatabase.ClonedDatabaseDirectory;
+            string connectionString = ClonedDatabase.ConnectionString;
+            
+            DeleteClonedDatabase();
+            CloneDatabase(databaseToClone,clonedDbName,clonedDbDirectory,connectionString);
         }
 
         public static void SeedDataEGTmitdk(DataContext dbContext)
