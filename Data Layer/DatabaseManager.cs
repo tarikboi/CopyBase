@@ -1,10 +1,6 @@
 ﻿using CopyBase.Data_Layer.DataModel;
 using CopyBase.Domain;
-using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Diagnostics.Metrics;
 
 namespace CopyBase.Data_Layer
 {

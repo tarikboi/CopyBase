@@ -87,10 +87,6 @@ namespace CopyBase.Domain
         {
             bool boolResponse = false;
 
-
-
-
-
             string windowsUserEmailAddress = "";
             string windowsUserRememberMeCode = "";
             //get the current user's windows email address
