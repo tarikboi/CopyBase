@@ -8,12 +8,11 @@ namespace CopyBase
 {
     public partial class LoginForm : Form
     {
-        private readonly ILoginManager _loginManager;
+        private readonly ILoginManager _loginManager = new LoginManager();
 
         public LoginForm(ILoginManager loginManager)
         {
             InitializeComponent();
-            _loginManager = loginManager;
         }
 
         private void LoginForm_Load(object sender, EventArgs e)
@@ -33,10 +32,8 @@ namespace CopyBase
                 }
 
                 //Create instance of ICloneManager
-                IDatabaseManager _databaseManager = new DatabaseManager();
-                ICloneManager _cloneManager = new CloneManager(_databaseManager);
                 //Switch to CloneForm
-                CloneForm cf = new CloneForm(_cloneManager);
+                CloneForm cf = new CloneForm();
                 cf.StartPosition = FormStartPosition.Manual;
                 cf.Location = this.Location;
                 cf.Show();

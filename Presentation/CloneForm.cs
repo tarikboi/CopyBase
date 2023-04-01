@@ -14,11 +14,10 @@ namespace CopyBase
 {
     public partial class CloneForm : Form
     {
-        private readonly ICloneManager _cloneManager;
+        private readonly ICloneManager _cloneManager = new CloneManager();
 
-        public CloneForm(ICloneManager cloneManager)
+        public CloneForm()
         {
-            _cloneManager = cloneManager;
             InitializeComponent();
         }
 
@@ -69,7 +68,7 @@ namespace CopyBase
                     _cloneManager.CloneDatabase(DbToCloneMenu.Text, clonedDbNameTextBox.Text, clonedDbDirTextBox.Text);
 
                     //Switch to RunningCloneForm
-                    RunningCloneForm rcf = new RunningCloneForm(_cloneManager);
+                    RunningCloneForm rcf = new RunningCloneForm();
                     rcf.StartPosition = FormStartPosition.Manual;
                     rcf.Location = this.Location;
                     rcf.Show();

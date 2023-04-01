@@ -14,13 +14,13 @@ namespace CopyBase.Domain
 
             ILoginManager _loginManager = new LoginManager();
             IDatabaseManager _databaseManager = new DatabaseManager();
-            ICloneManager _cloneManager = new CloneManager(_databaseManager);
+            ICloneManager _cloneManager = new CloneManager();
 
             if (LoginManager.RememberMeCheck())
             {
                 _loginManager.CreateUser("");
 
-                CloneForm cf = new CloneForm(_cloneManager);
+                CloneForm cf = new CloneForm();
                 cf.Show();
 
             }

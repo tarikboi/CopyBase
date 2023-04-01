@@ -6,11 +6,7 @@ namespace CopyBase.Domain
 {
     internal class CloneManager : ICloneManager
     {
-        private readonly IDatabaseManager _databaseManager;
-        public CloneManager(IDatabaseManager databaseManager)
-        {
-            _databaseManager = databaseManager;
-        }
+        private readonly IDatabaseManager _databaseManager = new DatabaseManager();
 
         public bool UserHasPermission(string databaseToClone, string userEmail)
         {
