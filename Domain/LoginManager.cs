@@ -2,16 +2,17 @@
 using System.Text;
 using System.Security.Cryptography;
 using System.IO;
+using CopyBase.Domain.Interfaces;
 
 namespace CopyBase.Domain
 {
-    internal class LoginManager
+    internal class LoginManager : ILoginManager
     {
         public static string loggedInUsername = UserPrincipal.Current.SamAccountName;
         public static string rememberMeFilePath = $"C:\\Users\\{loggedInUsername}\\AppData\\Local\\Copybase\\RememberMeFile.txt";
 
         //Verify user credentials
-        public static bool VerifyCredentials(string email, string password)
+        public bool VerifyCredentials(string email, string password)
         {
             bool response = false;
 
@@ -31,7 +32,7 @@ namespace CopyBase.Domain
         }
 
         //Creates user and initializes user variables
-        public static void CreateUser(string userEmail)
+        public void CreateUser(string userEmail)
         {
             string fullName = "";
             string username = "";
@@ -56,11 +57,13 @@ namespace CopyBase.Domain
         }
 
         //Set Remember Me code in file
-        public static void SetRememberMe(string email)
+        public void SetRememberMe(string email)
         {
             string userRememberMeCode = GenerateRememberMeCode(email);
             File.WriteAllText(rememberMeFilePath, userRememberMeCode);
         }
+
+
 
         //Takes user email, hashes it and returns the unique code based on user email
         public static string GenerateRememberMeCode(string email)

@@ -8,13 +8,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CopyBase.Domain;
+using CopyBase.Domain.Interfaces;
 
 namespace CopyBase
 {
     public partial class CloneForm : Form
     {
-        public CloneForm()
+        private readonly ICloneManager _cloneManager;
+
+        public CloneForm(ICloneManager cloneManager)
         {
+            _cloneManager = cloneManager;
             InitializeComponent();
         }
 
@@ -53,7 +57,7 @@ namespace CopyBase
         
         private void cloneButton_Click(object sender, EventArgs e)
         {
-            if (CloneManager.UserHasPermission(DbToCloneMenu.Text, User.Email))
+            if (_cloneManager.UserHasPermission(DbToCloneMenu.Text, User.Email))
             {
                 //Check if all fields have text
                 if (DbToCloneMenu.Text.Equals("") || clonedDbNameTextBox.Text.Equals("") || clonedDbDirTextBox.Text.Equals(""))
@@ -62,10 +66,10 @@ namespace CopyBase
                 }
                 else
                 {
-                    CloneManager.CloneDatabase(DbToCloneMenu.Text, clonedDbNameTextBox.Text, clonedDbDirTextBox.Text);
+                    _cloneManager.CloneDatabase(DbToCloneMenu.Text, clonedDbNameTextBox.Text, clonedDbDirTextBox.Text);
 
                     //Switch to RunningCloneForm
-                    RunningCloneForm rcf = new RunningCloneForm();
+                    RunningCloneForm rcf = new RunningCloneForm(_cloneManager);
                     rcf.StartPosition = FormStartPosition.Manual;
                     rcf.Location = this.Location;
                     rcf.Show();
@@ -146,8 +150,11 @@ namespace CopyBase
 
         private void logoutButton_Click(object sender, EventArgs e)
         {
+            //Create instance of ILoginManager
+            ILoginManager _loginManager = new LoginManager();
+
             //Switch to CloneForm
-            LoginForm lf = new LoginForm();
+            LoginForm lf = new LoginForm(_loginManager);
             lf.StartPosition = FormStartPosition.Manual;
             lf.Location = this.Location;
             lf.Show();

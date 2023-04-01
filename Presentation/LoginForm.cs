@@ -1,13 +1,19 @@
 using CopyBase.Domain;
 using System.DirectoryServices.AccountManagement;
+using CopyBase.Data_Layer;
+using CopyBase.Data_Layer.Interfaces;
+using CopyBase.Domain.Interfaces;
 
 namespace CopyBase
 {
     public partial class LoginForm : Form
     {
-        public LoginForm()
+        private readonly ILoginManager _loginManager;
+
+        public LoginForm(ILoginManager loginManager)
         {
             InitializeComponent();
+            _loginManager = loginManager;
         }
 
         private void LoginForm_Load(object sender, EventArgs e)
@@ -17,17 +23,20 @@ namespace CopyBase
 
         private void loginButton_Click(object sender, EventArgs e)
         {
-            if (LoginManager.VerifyCredentials(emailTextBox.Text, passwordTextBox.Text))
+            if (_loginManager.VerifyCredentials(emailTextBox.Text, passwordTextBox.Text))
             {
-                LoginManager.CreateUser(emailTextBox.Text);
+                _loginManager.CreateUser(emailTextBox.Text);
 
                 if (rememberMeCheckBox.Checked)
                 {
-                    LoginManager.SetRememberMe(emailTextBox.Text);
+                    _loginManager.SetRememberMe(emailTextBox.Text);
                 }
 
+                //Create instance of ICloneManager
+                IDatabaseManager _databaseManager = new DatabaseManager();
+                ICloneManager _cloneManager = new CloneManager(_databaseManager);
                 //Switch to CloneForm
-                CloneForm cf = new CloneForm();
+                CloneForm cf = new CloneForm(_cloneManager);
                 cf.StartPosition = FormStartPosition.Manual;
                 cf.Location = this.Location;
                 cf.Show();

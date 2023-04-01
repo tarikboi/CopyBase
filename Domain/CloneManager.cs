@@ -1,15 +1,23 @@
 ﻿using CopyBase.Data_Layer;
+using CopyBase.Data_Layer.Interfaces;
+using CopyBase.Domain.Interfaces;
 
 namespace CopyBase.Domain
 {
-    internal class CloneManager
+    internal class CloneManager : ICloneManager
     {
-        public static bool UserHasPermission(string databaseToClone, string userEmail)
+        private readonly IDatabaseManager _databaseManager;
+        public CloneManager(IDatabaseManager databaseManager)
+        {
+            _databaseManager = databaseManager;
+        }
+
+        public bool UserHasPermission(string databaseToClone, string userEmail)
         {
             return true;
         }
 
-        public static void CloneDatabase(string databaseToClone, string clonedDbName, string clonedDbDirectory)
+        public void CloneDatabase(string databaseToClone, string clonedDbName, string clonedDbDirectory)
         {
             //Create directory if it doesnt exist
             Directory.CreateDirectory(clonedDbDirectory);
@@ -19,20 +27,20 @@ namespace CopyBase.Domain
             string connectionString = $@"Data Source=(LocalDb)\MSSQLLocalDB;Initial Catalog={clonedDbName};AttachDbFilename={fullDirectory};Integrated Security=True;";
 
             //Clone database and create ClonedDatebase object for future use
-            DatabaseManager.CloneDatabase(databaseToClone, clonedDbName, fullDirectory, connectionString);
+            _databaseManager.CloneDatabase(databaseToClone, clonedDbName, fullDirectory, connectionString);
         }
         
-        public static void DeleteClonedDatabase()
+        public void DeleteClonedDatabase()
         {
-            DatabaseManager.DeleteClonedDatabase();
+            _databaseManager.DeleteClonedDatabase();
         }
 
-        public static void ResetClonedDatabase()
+        public void ResetClonedDatabase()
         {
-            DatabaseManager.ResetClonedDatabase();
+            _databaseManager.ResetClonedDatabase();
         }
 
-        public static void OpenClonedDatabase()
+        public void OpenClonedDatabase()
         { 
             string ssmsPath = @"C:\Program Files (x86)\Microsoft SQL Server Management Studio 18\Common7\IDE\Ssms.exe";
             string arguments = $@"-S ""(localdb)\MSSQLLocalDB""";

@@ -1,12 +1,13 @@
 ﻿using CopyBase.Data_Layer.DataModel;
+using CopyBase.Data_Layer.Interfaces;
 using CopyBase.Domain;
 using Microsoft.EntityFrameworkCore;
 
 namespace CopyBase.Data_Layer
 {
-    internal class DatabaseManager
+    internal class DatabaseManager : IDatabaseManager
     {
-        public static void CloneDatabase(string databaseToClone, string clonedDbName, string clonedDbDirectory, string connectionString)
+        public void CloneDatabase(string databaseToClone, string clonedDbName, string clonedDbDirectory, string connectionString)
         {
             //Create an instance of the DataContext class with the appropriate DbContextOptions
             var optionsBuilder = new DbContextOptionsBuilder<DataContext>();
@@ -34,7 +35,7 @@ namespace CopyBase.Data_Layer
 
         }
 
-        public static void DeleteClonedDatabase()
+        public void DeleteClonedDatabase()
         {
             using var dbContext = new DbContext(new DbContextOptionsBuilder().UseSqlServer(ClonedDatabase.ConnectionString).Options);
 
@@ -45,7 +46,7 @@ namespace CopyBase.Data_Layer
             ClonedDatabase.Deactivate();
         }
         
-        public static void ResetClonedDatabase()
+        public void ResetClonedDatabase()
         {
             string databaseToClone = ClonedDatabase.DatabaseToClone;
             string clonedDbName = ClonedDatabase.ClonedDatabaseName;

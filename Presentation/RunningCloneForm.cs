@@ -1,13 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using CopyBase.Domain;
+﻿using CopyBase.Domain;
+using CopyBase.Domain.Interfaces;
 using CopyBase.Presentation;
 using CopyBase.Presentation.ConfirmationDialogForms;
 
@@ -15,8 +7,11 @@ namespace CopyBase
 {
     public partial class RunningCloneForm : Form
     {
-        public RunningCloneForm()
+        private readonly ICloneManager _cloneManager;
+
+        public RunningCloneForm(ICloneManager cloneManager)
         {
+            _cloneManager = cloneManager;
             InitializeComponent();
         }
 
@@ -40,10 +35,10 @@ namespace CopyBase
             
             if (result == DialogResult.OK)
             {
-                CloneManager.DeleteClonedDatabase();
+                _cloneManager.DeleteClonedDatabase();
 
                 //Switch to CloneForm
-                CloneForm cf = new CloneForm();
+                CloneForm cf = new CloneForm(_cloneManager);
                 cf.StartPosition = FormStartPosition.Manual;
                 cf.Location = this.Location;
                 cf.Show();
@@ -62,7 +57,7 @@ namespace CopyBase
 
                 if (result == DialogResult.OK)
                 {
-                    CloneManager.DeleteClonedDatabase();
+                    _cloneManager.DeleteClonedDatabase();
                     Application.Exit();
                 }
                 else
@@ -74,7 +69,7 @@ namespace CopyBase
 
         private void openButton_Click(object sender, EventArgs e)
         {
-            CloneManager.OpenClonedDatabase();
+            _cloneManager.OpenClonedDatabase();
         }
 
         private void resetButton_Click(object sender, EventArgs e)
@@ -85,8 +80,8 @@ namespace CopyBase
 
             if (result == DialogResult.OK)
             {
-                CloneManager.ResetClonedDatabase();
-                label.Text = "Cloned databas has been successfully reset";
+                _cloneManager.ResetClonedDatabase();
+                label.Text = @"Cloned database has been successfully reset";
             }
         }
 
