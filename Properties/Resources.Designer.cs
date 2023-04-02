@@ -59,5 +59,35 @@ namespace CopyBase.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap copybase_icon {
+            get {
+                object obj = ResourceManager.GetObject("copybase_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap copybase_logo {
+            get {
+                object obj = ResourceManager.GetObject("copybase_logo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] nunito {
+            get {
+                object obj = ResourceManager.GetObject("nunito", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
     }
 }
