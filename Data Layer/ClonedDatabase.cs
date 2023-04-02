@@ -1,4 +1,4 @@
-﻿namespace CopyBase.Domain
+﻿namespace CopyBase.Data_Layer
 {
     internal class ClonedDatabase
     {

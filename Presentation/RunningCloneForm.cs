@@ -14,11 +14,6 @@ namespace CopyBase
             InitializeComponent();
         }
 
-        private void ClonedDbPath_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void RunningCloneForm_Load(object sender, EventArgs e)
         {
             //Set user variables
@@ -82,11 +77,6 @@ namespace CopyBase
                 _cloneManager.ResetClonedDatabase();
                 label.Text = @"Cloned database has been successfully reset";
             }
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

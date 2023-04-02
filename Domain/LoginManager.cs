@@ -1,7 +1,6 @@
 ﻿using System.DirectoryServices.AccountManagement;
 using System.Text;
 using System.Security.Cryptography;
-using System.IO;
 using CopyBase.Domain.Interfaces;
 
 namespace CopyBase.Domain

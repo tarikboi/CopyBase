@@ -1,6 +1,5 @@
 ﻿using CopyBase.Data_Layer.DataModel;
 using CopyBase.Data_Layer.Interfaces;
-using CopyBase.Domain;
 using Microsoft.EntityFrameworkCore;
 
 namespace CopyBase.Data_Layer

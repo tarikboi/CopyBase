@@ -1,7 +1,4 @@
 using CopyBase.Domain;
-using System.DirectoryServices.AccountManagement;
-using CopyBase.Data_Layer;
-using CopyBase.Data_Layer.Interfaces;
 using CopyBase.Domain.Interfaces;
 
 namespace CopyBase
@@ -10,7 +7,7 @@ namespace CopyBase
     {
         private readonly ILoginManager _loginManager = new LoginManager();
 
-        public LoginForm(ILoginManager loginManager)
+        public LoginForm()
         {
             InitializeComponent();
         }
@@ -46,48 +43,9 @@ namespace CopyBase
             }
         }
 
-        private void textBox1_TextChanged_1(object sender, EventArgs e)
-        {
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void backgroundWorker1_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
-        {
-
-        }
-
         private void LoginForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
-        }
-
-        private void mainPanel_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void label1_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void rememberMeCheckBox_CheckedChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

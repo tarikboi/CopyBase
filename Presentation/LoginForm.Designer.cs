@@ -41,10 +41,6 @@
             this.mainPanel.SuspendLayout();
             this.SuspendLayout();
             // 
-            // backgroundWorker1
-            // 
-            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
-            // 
             // mainPanel
             // 
             this.mainPanel.Controls.Add(this.incorrectLoginText);
@@ -61,7 +57,6 @@
             this.mainPanel.Name = "mainPanel";
             this.mainPanel.Size = new System.Drawing.Size(461, 579);
             this.mainPanel.TabIndex = 0;
-            this.mainPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.mainPanel_Paint);
             // 
             // incorrectLoginText
             // 
@@ -71,7 +66,6 @@
             this.incorrectLoginText.Name = "incorrectLoginText";
             this.incorrectLoginText.Size = new System.Drawing.Size(0, 23);
             this.incorrectLoginText.TabIndex = 8;
-            this.incorrectLoginText.Click += new System.EventHandler(this.label1_Click_1);
             // 
             // logoPlaceholder
             // 
@@ -82,7 +76,6 @@
             this.logoPlaceholder.Size = new System.Drawing.Size(110, 46);
             this.logoPlaceholder.TabIndex = 7;
             this.logoPlaceholder.Text = "LOGO";
-            this.logoPlaceholder.Click += new System.EventHandler(this.label3_Click_1);
             // 
             // rememberMeCheckBox
             // 
@@ -95,7 +88,6 @@
             this.rememberMeCheckBox.TabIndex = 2;
             this.rememberMeCheckBox.Text = "Remember me";
             this.rememberMeCheckBox.UseVisualStyleBackColor = true;
-            this.rememberMeCheckBox.CheckedChanged += new System.EventHandler(this.rememberMeCheckBox_CheckedChanged);
             // 
             // passwordLabel
             // 
@@ -116,7 +108,6 @@
             this.emailLabel.Size = new System.Drawing.Size(75, 35);
             this.emailLabel.TabIndex = 3;
             this.emailLabel.Text = "Email";
-            this.emailLabel.Click += new System.EventHandler(this.label1_Click);
             // 
             // passwordTextBox
             // 
@@ -128,7 +119,6 @@
             this.passwordTextBox.Size = new System.Drawing.Size(398, 41);
             this.passwordTextBox.TabIndex = 1;
             this.passwordTextBox.UseSystemPasswordChar = true;
-            this.passwordTextBox.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // emailTextBox
             // 
@@ -139,7 +129,6 @@
             this.emailTextBox.Name = "emailTextBox";
             this.emailTextBox.Size = new System.Drawing.Size(398, 41);
             this.emailTextBox.TabIndex = 0;
-            this.emailTextBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged_1);
             // 
             // loginButton
             // 

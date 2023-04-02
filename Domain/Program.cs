@@ -1,5 +1,3 @@
-using CopyBase.Data_Layer;
-using CopyBase.Data_Layer.Interfaces;
 using CopyBase.Domain.Interfaces;
 
 namespace CopyBase.Domain
@@ -12,12 +10,9 @@ namespace CopyBase.Domain
 
             ApplicationConfiguration.Initialize();
 
-            ILoginManager _loginManager = new LoginManager();
-            IDatabaseManager _databaseManager = new DatabaseManager();
-            ICloneManager _cloneManager = new CloneManager();
-
             if (LoginManager.RememberMeCheck())
             {
+                ILoginManager _loginManager = new LoginManager();
                 _loginManager.CreateUser("");
 
                 CloneForm cf = new CloneForm();
@@ -26,7 +21,7 @@ namespace CopyBase.Domain
             }
             else
             {
-                LoginForm lf = new LoginForm(_loginManager);
+                LoginForm lf = new LoginForm();
                 lf.Show();
             }
 

@@ -128,7 +128,6 @@
             this.label.Size = new System.Drawing.Size(281, 23);
             this.label.TabIndex = 1;
             this.label.Text = "Database successfully cloned locally";
-            this.label.Click += new System.EventHandler(this.label1_Click);
             // 
             // ClonedDbPath
             // 
@@ -138,7 +137,6 @@
             this.ClonedDbPath.ReadOnly = true;
             this.ClonedDbPath.Size = new System.Drawing.Size(388, 27);
             this.ClonedDbPath.TabIndex = 10;
-            this.ClonedDbPath.TextChanged += new System.EventHandler(this.ClonedDbPath_TextChanged);
             // 
             // RunningCloneForm
             // 

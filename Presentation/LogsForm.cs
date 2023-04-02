@@ -16,15 +16,5 @@ namespace CopyBase.Presentation
         {
             InitializeComponent();
         }
-
-        private void richTextBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void richTextBox1_TextChanged_1(object sender, EventArgs e)
-        {
-
-        }
     }
 }
