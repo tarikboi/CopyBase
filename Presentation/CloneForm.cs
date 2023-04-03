@@ -49,17 +49,7 @@ namespace CopyBase
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            using (var browser = new FolderBrowserDialog())
-            {
-                browser.RootFolder = Environment.SpecialFolder.Desktop;
-                browser.ShowNewFolderButton = true;
-
-                if (browser.ShowDialog() == DialogResult.OK)
-                {
-                    string folderPath = browser.SelectedPath;
-                    clonedDbDirTextBox.Text =  folderPath;
-                }
-            }
+            
         }
 
         private void DbToCloneMenu_SelectedIndexChanged(object sender, EventArgs e)
@@ -68,6 +58,30 @@ namespace CopyBase
         }
 
         private void logoutButton_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void CloneForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void folderIcon_Click(object sender, EventArgs e)
+        {
+            using (var browser = new FolderBrowserDialog())
+            {
+                browser.RootFolder = Environment.SpecialFolder.Desktop;
+                browser.ShowNewFolderButton = true;
+
+                if (browser.ShowDialog() == DialogResult.OK)
+                {
+                    string folderPath = browser.SelectedPath;
+                    clonedDbDirTextBox.Text = folderPath;
+                }
+            }
+        }
+
+        private void logoutIcon_Click(object sender, EventArgs e)
         {
             //Switch to CloneForm
             LoginForm lf = new LoginForm();
