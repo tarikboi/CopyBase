@@ -29,7 +29,8 @@ namespace CopyBase
         }
 
         private void LoginForm_Load(object sender, EventArgs e)
-        { 
+        {
+            passwordTextBox.UseSystemPasswordChar = true;
             incorrectLoginText.Text = "";
         }
 
@@ -62,6 +63,19 @@ namespace CopyBase
         private void LoginForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void viewPassIcon_MouseDown(object sender, MouseEventArgs e)
+        {
+            viewPassIcon.Image = Properties.Resources.unview;
+            passwordTextBox.UseSystemPasswordChar = false;
+        }
+        
+
+        private void viewPassIcon_MouseUp(object sender, MouseEventArgs e)
+        {
+            viewPassIcon.Image = Properties.Resources.view;
+            passwordTextBox.UseSystemPasswordChar = true;
         }
     }
 }

@@ -71,6 +71,7 @@
             // 
             // logoutIcon
             // 
+            this.logoutIcon.Cursor = System.Windows.Forms.Cursors.Hand;
             this.logoutIcon.Image = global::CopyBase.Properties.Resources.logout;
             this.logoutIcon.Location = new System.Drawing.Point(31, 25);
             this.logoutIcon.Name = "logoutIcon";
@@ -83,6 +84,7 @@
             // folderIconPanel
             // 
             this.folderIconPanel.Controls.Add(this.folderIcon);
+            this.folderIconPanel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.folderIconPanel.Location = new System.Drawing.Point(344, 286);
             this.folderIconPanel.Name = "folderIconPanel";
             this.folderIconPanel.Size = new System.Drawing.Size(30, 30);
@@ -91,6 +93,7 @@
             // 
             // folderIcon
             // 
+            this.folderIcon.Cursor = System.Windows.Forms.Cursors.Hand;
             this.folderIcon.Image = global::CopyBase.Properties.Resources.folder;
             this.folderIcon.Location = new System.Drawing.Point(7, 8);
             this.folderIcon.Name = "folderIcon";
@@ -112,6 +115,7 @@
             // 
             this.DbToCloneMenu.BackColor = System.Drawing.Color.White;
             this.DbToCloneMenu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.DbToCloneMenu.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.DbToCloneMenu.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.DbToCloneMenu.ForeColor = System.Drawing.Color.Gray;
             this.DbToCloneMenu.FormattingEnabled = true;
@@ -213,6 +217,7 @@
             this.cloneButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.cloneButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.cloneButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cloneButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cloneButton.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.cloneButton.ForeColor = System.Drawing.Color.White;
