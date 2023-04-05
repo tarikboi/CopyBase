@@ -30,19 +30,19 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CloneForm));
             this.panel = new System.Windows.Forms.Panel();
+            this.cloneButton = new Siticone.Desktop.UI.WinForms.SiticoneButton();
+            this.DbToCloneMenu = new Siticone.Desktop.UI.WinForms.SiticoneComboBox();
+            this.clonedDbNameTextBox = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
             this.logoutIcon = new System.Windows.Forms.PictureBox();
             this.folderIconPanel = new System.Windows.Forms.Panel();
             this.folderIcon = new System.Windows.Forms.PictureBox();
             this.allFieldsErrorLabel = new System.Windows.Forms.Label();
-            this.DbToCloneMenu = new System.Windows.Forms.ComboBox();
             this.emailLabel = new System.Windows.Forms.Label();
             this.fullNameLabel = new System.Windows.Forms.Label();
-            this.clonedDbNameTextBox = new System.Windows.Forms.TextBox();
             this.clonedDbNameLabel = new System.Windows.Forms.Label();
             this.clonedDbDirLabel = new System.Windows.Forms.Label();
             this.dbToCloneLabel = new System.Windows.Forms.Label();
-            this.clonedDbDirTextBox = new System.Windows.Forms.TextBox();
-            this.cloneButton = new System.Windows.Forms.Button();
+            this.clonedDbDirTextBox = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
             this.panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logoutIcon)).BeginInit();
             this.folderIconPanel.SuspendLayout();
@@ -51,23 +51,85 @@
             // 
             // panel
             // 
+            this.panel.Controls.Add(this.cloneButton);
+            this.panel.Controls.Add(this.DbToCloneMenu);
+            this.panel.Controls.Add(this.clonedDbNameTextBox);
             this.panel.Controls.Add(this.logoutIcon);
             this.panel.Controls.Add(this.folderIconPanel);
             this.panel.Controls.Add(this.allFieldsErrorLabel);
-            this.panel.Controls.Add(this.DbToCloneMenu);
             this.panel.Controls.Add(this.emailLabel);
             this.panel.Controls.Add(this.fullNameLabel);
-            this.panel.Controls.Add(this.clonedDbNameTextBox);
             this.panel.Controls.Add(this.clonedDbNameLabel);
             this.panel.Controls.Add(this.clonedDbDirLabel);
             this.panel.Controls.Add(this.dbToCloneLabel);
             this.panel.Controls.Add(this.clonedDbDirTextBox);
-            this.panel.Controls.Add(this.cloneButton);
             this.panel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.panel.Location = new System.Drawing.Point(0, 0);
             this.panel.Name = "panel";
             this.panel.Size = new System.Drawing.Size(403, 434);
             this.panel.TabIndex = 0;
+            // 
+            // cloneButton
+            // 
+            this.cloneButton.BorderRadius = 8;
+            this.cloneButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.cloneButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.cloneButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.cloneButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.cloneButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.cloneButton.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.cloneButton.ForeColor = System.Drawing.Color.White;
+            this.cloneButton.Location = new System.Drawing.Point(27, 357);
+            this.cloneButton.Name = "cloneButton";
+            this.cloneButton.Size = new System.Drawing.Size(349, 50);
+            this.cloneButton.TabIndex = 17;
+            this.cloneButton.Text = "Clone";
+            this.cloneButton.Click += new System.EventHandler(this.cloneButton_Click);
+            // 
+            // DbToCloneMenu
+            // 
+            this.DbToCloneMenu.BackColor = System.Drawing.Color.Transparent;
+            this.DbToCloneMenu.BorderRadius = 8;
+            this.DbToCloneMenu.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.DbToCloneMenu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.DbToCloneMenu.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.DbToCloneMenu.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.DbToCloneMenu.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.DbToCloneMenu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.DbToCloneMenu.ItemHeight = 49;
+            this.DbToCloneMenu.Items.AddRange(new object[] {
+            "EGT.mitDk",
+            "Salary"});
+            this.DbToCloneMenu.Location = new System.Drawing.Point(27, 125);
+            this.DbToCloneMenu.Name = "DbToCloneMenu";
+            this.DbToCloneMenu.Size = new System.Drawing.Size(349, 55);
+            this.DbToCloneMenu.TabIndex = 16;
+            this.DbToCloneMenu.SelectedIndexChanged += new System.EventHandler(this.DbToCloneMenu_SelectedIndexChanged);
+            // 
+            // clonedDbNameTextBox
+            // 
+            this.clonedDbNameTextBox.BorderColor = System.Drawing.Color.Silver;
+            this.clonedDbNameTextBox.BorderRadius = 8;
+            this.clonedDbNameTextBox.DefaultText = "";
+            this.clonedDbNameTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.clonedDbNameTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.clonedDbNameTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.clonedDbNameTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.clonedDbNameTextBox.FocusedState.BorderColor = System.Drawing.Color.Gray;
+            this.clonedDbNameTextBox.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.clonedDbNameTextBox.ForeColor = System.Drawing.Color.Gray;
+            this.clonedDbNameTextBox.HoverState.BorderColor = System.Drawing.Color.Gray;
+            this.clonedDbNameTextBox.Location = new System.Drawing.Point(27, 206);
+            this.clonedDbNameTextBox.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.clonedDbNameTextBox.MaxLength = 35;
+            this.clonedDbNameTextBox.Name = "clonedDbNameTextBox";
+            this.clonedDbNameTextBox.PasswordChar = '\0';
+            this.clonedDbNameTextBox.PlaceholderForeColor = System.Drawing.Color.Gray;
+            this.clonedDbNameTextBox.PlaceholderText = "";
+            this.clonedDbNameTextBox.SelectedText = "";
+            this.clonedDbNameTextBox.Size = new System.Drawing.Size(349, 44);
+            this.clonedDbNameTextBox.TabIndex = 14;
             // 
             // logoutIcon
             // 
@@ -85,9 +147,9 @@
             // 
             this.folderIconPanel.Controls.Add(this.folderIcon);
             this.folderIconPanel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.folderIconPanel.Location = new System.Drawing.Point(344, 286);
+            this.folderIconPanel.Location = new System.Drawing.Point(338, 292);
             this.folderIconPanel.Name = "folderIconPanel";
-            this.folderIconPanel.Size = new System.Drawing.Size(30, 30);
+            this.folderIconPanel.Size = new System.Drawing.Size(33, 33);
             this.folderIconPanel.TabIndex = 12;
             this.folderIconPanel.Click += new System.EventHandler(this.folderIcon_Click);
             // 
@@ -95,9 +157,9 @@
             // 
             this.folderIcon.Cursor = System.Windows.Forms.Cursors.Hand;
             this.folderIcon.Image = global::CopyBase.Properties.Resources.folder;
-            this.folderIcon.Location = new System.Drawing.Point(7, 8);
+            this.folderIcon.Location = new System.Drawing.Point(6, 7);
             this.folderIcon.Name = "folderIcon";
-            this.folderIcon.Size = new System.Drawing.Size(15, 15);
+            this.folderIcon.Size = new System.Drawing.Size(20, 20);
             this.folderIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.folderIcon.TabIndex = 0;
             this.folderIcon.TabStop = false;
@@ -108,26 +170,8 @@
             this.allFieldsErrorLabel.AutoSize = true;
             this.allFieldsErrorLabel.Location = new System.Drawing.Point(99, 323);
             this.allFieldsErrorLabel.Name = "allFieldsErrorLabel";
-            this.allFieldsErrorLabel.Size = new System.Drawing.Size(0, 15);
+            this.allFieldsErrorLabel.Size = new System.Drawing.Size(0, 25);
             this.allFieldsErrorLabel.TabIndex = 11;
-            // 
-            // DbToCloneMenu
-            // 
-            this.DbToCloneMenu.BackColor = System.Drawing.Color.White;
-            this.DbToCloneMenu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.DbToCloneMenu.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.DbToCloneMenu.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.DbToCloneMenu.ForeColor = System.Drawing.Color.Gray;
-            this.DbToCloneMenu.FormattingEnabled = true;
-            this.DbToCloneMenu.Items.AddRange(new object[] {
-            "EGT.mitDk",
-            "Salary"});
-            this.DbToCloneMenu.Location = new System.Drawing.Point(27, 121);
-            this.DbToCloneMenu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.DbToCloneMenu.Name = "DbToCloneMenu";
-            this.DbToCloneMenu.Size = new System.Drawing.Size(349, 36);
-            this.DbToCloneMenu.TabIndex = 0;
-            this.DbToCloneMenu.SelectedIndexChanged += new System.EventHandler(this.DbToCloneMenu_SelectedIndexChanged);
             // 
             // emailLabel
             // 
@@ -151,19 +195,6 @@
             this.fullNameLabel.TabIndex = 7;
             this.fullNameLabel.Text = "Name Holder";
             // 
-            // clonedDbNameTextBox
-            // 
-            this.clonedDbNameTextBox.AccessibleName = "";
-            this.clonedDbNameTextBox.BackColor = System.Drawing.Color.White;
-            this.clonedDbNameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.clonedDbNameTextBox.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.clonedDbNameTextBox.ForeColor = System.Drawing.Color.Gray;
-            this.clonedDbNameTextBox.Location = new System.Drawing.Point(27, 203);
-            this.clonedDbNameTextBox.MaxLength = 30;
-            this.clonedDbNameTextBox.Name = "clonedDbNameTextBox";
-            this.clonedDbNameTextBox.Size = new System.Drawing.Size(349, 34);
-            this.clonedDbNameTextBox.TabIndex = 1;
-            // 
             // clonedDbNameLabel
             // 
             this.clonedDbNameLabel.AutoSize = true;
@@ -182,7 +213,7 @@
             this.clonedDbDirLabel.BackColor = System.Drawing.Color.Transparent;
             this.clonedDbDirLabel.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.clonedDbDirLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.clonedDbDirLabel.Location = new System.Drawing.Point(22, 260);
+            this.clonedDbDirLabel.Location = new System.Drawing.Point(22, 258);
             this.clonedDbDirLabel.Name = "clonedDbDirLabel";
             this.clonedDbDirLabel.Size = new System.Drawing.Size(224, 25);
             this.clonedDbDirLabel.TabIndex = 4;
@@ -202,33 +233,28 @@
             // 
             // clonedDbDirTextBox
             // 
-            this.clonedDbDirTextBox.BackColor = System.Drawing.Color.White;
-            this.clonedDbDirTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.clonedDbDirTextBox.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.clonedDbDirTextBox.BorderColor = System.Drawing.Color.Silver;
+            this.clonedDbDirTextBox.BorderRadius = 8;
+            this.clonedDbDirTextBox.DefaultText = "";
+            this.clonedDbDirTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.clonedDbDirTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.clonedDbDirTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.clonedDbDirTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.clonedDbDirTextBox.FocusedState.BorderColor = System.Drawing.Color.Gray;
+            this.clonedDbDirTextBox.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.clonedDbDirTextBox.ForeColor = System.Drawing.Color.Gray;
-            this.clonedDbDirTextBox.Location = new System.Drawing.Point(27, 285);
+            this.clonedDbDirTextBox.HoverState.BorderColor = System.Drawing.Color.Gray;
+            this.clonedDbDirTextBox.Location = new System.Drawing.Point(27, 286);
+            this.clonedDbDirTextBox.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.clonedDbDirTextBox.MaxLength = 35;
             this.clonedDbDirTextBox.Name = "clonedDbDirTextBox";
+            this.clonedDbDirTextBox.PasswordChar = '\0';
+            this.clonedDbDirTextBox.PlaceholderForeColor = System.Drawing.Color.Gray;
+            this.clonedDbDirTextBox.PlaceholderText = "";
             this.clonedDbDirTextBox.ReadOnly = true;
-            this.clonedDbDirTextBox.Size = new System.Drawing.Size(349, 34);
-            this.clonedDbDirTextBox.TabIndex = 3;
-            // 
-            // cloneButton
-            // 
-            this.cloneButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.cloneButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.cloneButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cloneButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cloneButton.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.cloneButton.ForeColor = System.Drawing.Color.White;
-            this.cloneButton.Location = new System.Drawing.Point(27, 357);
-            this.cloneButton.Margin = new System.Windows.Forms.Padding(27, 0, 27, 27);
-            this.cloneButton.Name = "cloneButton";
-            this.cloneButton.Size = new System.Drawing.Size(349, 50);
-            this.cloneButton.TabIndex = 4;
-            this.cloneButton.Text = "Clone";
-            this.cloneButton.UseVisualStyleBackColor = false;
-            this.cloneButton.Click += new System.EventHandler(this.cloneButton_Click);
+            this.clonedDbDirTextBox.SelectedText = "";
+            this.clonedDbDirTextBox.Size = new System.Drawing.Size(349, 44);
+            this.clonedDbDirTextBox.TabIndex = 15;
             // 
             // CloneForm
             // 
@@ -240,6 +266,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(349, 44);
             this.Name = "CloneForm";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CloneForm_FormClosing);
             this.Load += new System.EventHandler(this.CloneForm_Load);
@@ -255,18 +282,18 @@
         #endregion
 
         private Panel panel;
-        private Button cloneButton;
-        private TextBox clonedDbDirTextBox;
         private Label dbToCloneLabel;
         private Label clonedDbDirLabel;
         private Label fullNameLabel;
         private Label emailLabel;
-        private ComboBox DbToCloneMenu;
-        private TextBox clonedDbNameTextBox;
         private Label clonedDbNameLabel;
         private Label allFieldsErrorLabel;
         private PictureBox folderIcon;
         private Panel folderIconPanel;
         private PictureBox logoutIcon;
+        private Siticone.Desktop.UI.WinForms.SiticoneTextBox clonedDbNameTextBox;
+        private Siticone.Desktop.UI.WinForms.SiticoneTextBox clonedDbDirTextBox;
+        private Siticone.Desktop.UI.WinForms.SiticoneComboBox DbToCloneMenu;
+        private Siticone.Desktop.UI.WinForms.SiticoneButton cloneButton;
     }
 }

@@ -90,5 +90,15 @@ namespace CopyBase
             lf.Show();
             this.Hide();
         }
+
+        private void CloneForm_Load_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void DbToCloneMenu_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }
