@@ -55,10 +55,22 @@ namespace CopyBase
             }
             else
             {
-                incorrectLoginText.ForeColor = Color.Red;
-                incorrectLoginText.Text = @"The email or password is incorrect!";
+                emailTextBox.BorderColor = Color.Red;
+                passwordTextBox.BorderColor = Color.Red;
+
+                //Set up a timer to change the border color back to gray after 1 second
+                var timer = new System.Windows.Forms.Timer();
+                timer.Interval = 2000; 
+                timer.Tick += (s, args) =>
+                {
+                    emailTextBox.BorderColor = Color.Gray;
+                    passwordTextBox.BorderColor = Color.Gray;
+                    timer.Stop();
+                };
+                timer.Start();
             }
         }
+
 
         private void LoginForm_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -76,6 +88,14 @@ namespace CopyBase
         {
             viewPassIcon.Image = Properties.Resources.view;
             passwordTextBox.UseSystemPasswordChar = true;
+        }
+
+        private void EnterKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                loginButton_Click(sender, e);
+            }
         }
     }
 }

@@ -32,7 +32,31 @@ namespace CopyBase
                 //Check if all fields have text
                 if (DbToCloneMenu.Text.Equals("") || clonedDbNameTextBox.Text.Equals("") || clonedDbDirTextBox.Text.Equals(""))
                 {
-                    allFieldsErrorLabel.Text = @"All fields must have a value!";
+                    if (DbToCloneMenu.Text.Equals(""))
+                    {
+                        DbToCloneMenu.BorderColor = Color.Red;
+                    }
+                    if (clonedDbNameTextBox.Text.Equals(""))
+                    {
+                        clonedDbNameTextBox.BorderColor = Color.Red;
+                    }
+
+                    if (clonedDbDirTextBox.Text.Equals(""))
+                    {
+                        clonedDbDirTextBox.BorderColor = Color.Red;
+                    }
+
+                    //Set up a timer to change the border color back to gray after 1 second
+                    var timer = new System.Windows.Forms.Timer();
+                    timer.Interval = 2000;
+                    timer.Tick += (s, args) =>
+                    {
+                        DbToCloneMenu.BorderColor = Color.Gray;
+                        clonedDbNameTextBox.BorderColor = Color.Gray;
+                        clonedDbDirTextBox.BorderColor = Color.Gray;
+                        timer.Stop();
+                    };
+                    timer.Start();
                 }
                 else
                 {
@@ -47,18 +71,10 @@ namespace CopyBase
                 }
             }
         }
-        private void button1_Click(object sender, EventArgs e)
-        {
-            
-        }
 
         private void DbToCloneMenu_SelectedIndexChanged(object sender, EventArgs e)
         {
             clonedDbNameTextBox.Text = DbToCloneMenu.Text + "Clone";
-        }
-
-        private void logoutButton_Click(object sender, EventArgs e)
-        {
         }
 
         private void CloneForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -83,22 +99,12 @@ namespace CopyBase
 
         private void logoutIcon_Click(object sender, EventArgs e)
         {
-            //Switch to CloneForm
+            //Switch to LoginForm
             LoginForm lf = new LoginForm();
             lf.StartPosition = FormStartPosition.Manual;
             lf.Location = this.Location;
             lf.Show();
             this.Hide();
-        }
-
-        private void CloneForm_Load_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void DbToCloneMenu_SelectedIndexChanged_1(object sender, EventArgs e)
-        {
-
         }
     }
 }

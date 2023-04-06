@@ -29,79 +29,95 @@
         private void InitializeComponent()
         {
             this.panel = new System.Windows.Forms.Panel();
+            this.exitProgramLabel = new System.Windows.Forms.Label();
             this.exitDescriptionLabel = new System.Windows.Forms.Label();
-            this.exitLabel = new System.Windows.Forms.Label();
-            this.exitButton = new System.Windows.Forms.Button();
-            this.cancelButton = new System.Windows.Forms.Button();
+            this.cancelButton = new Siticone.Desktop.UI.WinForms.SiticoneButton();
+            this.exitButton = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             this.panel.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel
             // 
+            this.panel.BackColor = System.Drawing.Color.White;
+            this.panel.Controls.Add(this.exitProgramLabel);
             this.panel.Controls.Add(this.exitDescriptionLabel);
-            this.panel.Controls.Add(this.exitLabel);
-            this.panel.Controls.Add(this.exitButton);
             this.panel.Controls.Add(this.cancelButton);
+            this.panel.Controls.Add(this.exitButton);
             this.panel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel.Location = new System.Drawing.Point(0, 0);
-            this.panel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel.Name = "panel";
-            this.panel.Size = new System.Drawing.Size(399, 316);
+            this.panel.Size = new System.Drawing.Size(349, 237);
             this.panel.TabIndex = 0;
-            this.panel.Paint += new System.Windows.Forms.PaintEventHandler(this.panel_Paint);
+            // 
+            // exitProgramLabel
+            // 
+            this.exitProgramLabel.AutoSize = true;
+            this.exitProgramLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.exitProgramLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.exitProgramLabel.Location = new System.Drawing.Point(141, 49);
+            this.exitProgramLabel.Name = "exitProgramLabel";
+            this.exitProgramLabel.Size = new System.Drawing.Size(56, 30);
+            this.exitProgramLabel.TabIndex = 20;
+            this.exitProgramLabel.Text = "EXIT";
+            this.exitProgramLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // exitDescriptionLabel
             // 
             this.exitDescriptionLabel.AutoSize = true;
-            this.exitDescriptionLabel.Location = new System.Drawing.Point(66, 121);
+            this.exitDescriptionLabel.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.exitDescriptionLabel.Location = new System.Drawing.Point(41, 101);
             this.exitDescriptionLabel.Name = "exitDescriptionLabel";
             this.exitDescriptionLabel.Size = new System.Drawing.Size(269, 40);
-            this.exitDescriptionLabel.TabIndex = 3;
+            this.exitDescriptionLabel.TabIndex = 21;
             this.exitDescriptionLabel.Text = "Are you sure you want to proceed? This\r\naction will delete all data.";
-            this.exitDescriptionLabel.Click += new System.EventHandler(this.label1_Click_1);
-            // 
-            // exitLabel
-            // 
-            this.exitLabel.AutoSize = true;
-            this.exitLabel.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.exitLabel.Location = new System.Drawing.Point(168, 47);
-            this.exitLabel.Name = "exitLabel";
-            this.exitLabel.Size = new System.Drawing.Size(59, 32);
-            this.exitLabel.TabIndex = 2;
-            this.exitLabel.Text = "EXIT";
-            this.exitLabel.Click += new System.EventHandler(this.label1_Click);
-            // 
-            // exitButton
-            // 
-            this.exitButton.Location = new System.Drawing.Point(216, 240);
-            this.exitButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.exitButton.Name = "exitButton";
-            this.exitButton.Size = new System.Drawing.Size(146, 47);
-            this.exitButton.TabIndex = 1;
-            this.exitButton.Text = "Exit";
-            this.exitButton.UseVisualStyleBackColor = true;
-            this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
+            this.exitDescriptionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // cancelButton
             // 
-            this.cancelButton.Location = new System.Drawing.Point(27, 240);
-            this.cancelButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.cancelButton.BackColor = System.Drawing.Color.White;
+            this.cancelButton.BorderRadius = 8;
+            this.cancelButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.cancelButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.cancelButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.cancelButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.cancelButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.cancelButton.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.cancelButton.ForeColor = System.Drawing.Color.White;
+            this.cancelButton.Location = new System.Drawing.Point(12, 188);
             this.cancelButton.Name = "cancelButton";
-            this.cancelButton.Size = new System.Drawing.Size(146, 47);
-            this.cancelButton.TabIndex = 0;
+            this.cancelButton.Size = new System.Drawing.Size(155, 37);
+            this.cancelButton.TabIndex = 19;
             this.cancelButton.Text = "Cancel";
-            this.cancelButton.UseVisualStyleBackColor = true;
             this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
+            // 
+            // exitButton
+            // 
+            this.exitButton.BackColor = System.Drawing.Color.White;
+            this.exitButton.BorderRadius = 8;
+            this.exitButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.exitButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.exitButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.exitButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.exitButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.exitButton.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.exitButton.ForeColor = System.Drawing.Color.White;
+            this.exitButton.Location = new System.Drawing.Point(182, 188);
+            this.exitButton.Name = "exitButton";
+            this.exitButton.Size = new System.Drawing.Size(155, 37);
+            this.exitButton.TabIndex = 18;
+            this.exitButton.Text = "Exit";
+            this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
             // 
             // ConfirmationExitForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(399, 316);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.ClientSize = new System.Drawing.Size(349, 237);
             this.Controls.Add(this.panel);
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "ConfirmationExitForm";
-            this.Text = "ConfirmationDeleteForm";
             this.panel.ResumeLayout(false);
             this.panel.PerformLayout();
             this.ResumeLayout(false);
@@ -111,9 +127,9 @@
         #endregion
 
         private Panel panel;
-        private Label exitLabel;
-        private Button exitButton;
-        private Button cancelButton;
+        private Siticone.Desktop.UI.WinForms.SiticoneButton cancelButton;
+        private Siticone.Desktop.UI.WinForms.SiticoneButton exitButton;
+        private Label exitProgramLabel;
         private Label exitDescriptionLabel;
     }
 }

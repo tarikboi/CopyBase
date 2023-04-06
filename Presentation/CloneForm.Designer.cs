@@ -51,6 +51,7 @@
             // 
             // panel
             // 
+            this.panel.BackColor = System.Drawing.Color.White;
             this.panel.Controls.Add(this.cloneButton);
             this.panel.Controls.Add(this.DbToCloneMenu);
             this.panel.Controls.Add(this.clonedDbNameTextBox);
@@ -83,20 +84,22 @@
             this.cloneButton.Location = new System.Drawing.Point(27, 357);
             this.cloneButton.Name = "cloneButton";
             this.cloneButton.Size = new System.Drawing.Size(349, 50);
-            this.cloneButton.TabIndex = 17;
+            this.cloneButton.TabIndex = 3;
             this.cloneButton.Text = "Clone";
             this.cloneButton.Click += new System.EventHandler(this.cloneButton_Click);
             // 
             // DbToCloneMenu
             // 
             this.DbToCloneMenu.BackColor = System.Drawing.Color.Transparent;
+            this.DbToCloneMenu.BorderColor = System.Drawing.Color.Silver;
             this.DbToCloneMenu.BorderRadius = 8;
             this.DbToCloneMenu.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.DbToCloneMenu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.DbToCloneMenu.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.DbToCloneMenu.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.DbToCloneMenu.FocusedColor = System.Drawing.Color.Transparent;
+            this.DbToCloneMenu.FocusedState.BorderColor = System.Drawing.Color.Transparent;
             this.DbToCloneMenu.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.DbToCloneMenu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.DbToCloneMenu.ForeColor = System.Drawing.Color.Gray;
+            this.DbToCloneMenu.HoverState.BorderColor = System.Drawing.Color.Gray;
             this.DbToCloneMenu.ItemHeight = 49;
             this.DbToCloneMenu.Items.AddRange(new object[] {
             "EGT.mitDk",
@@ -104,7 +107,7 @@
             this.DbToCloneMenu.Location = new System.Drawing.Point(27, 125);
             this.DbToCloneMenu.Name = "DbToCloneMenu";
             this.DbToCloneMenu.Size = new System.Drawing.Size(349, 55);
-            this.DbToCloneMenu.TabIndex = 16;
+            this.DbToCloneMenu.TabIndex = 0;
             this.DbToCloneMenu.SelectedIndexChanged += new System.EventHandler(this.DbToCloneMenu_SelectedIndexChanged);
             // 
             // clonedDbNameTextBox
@@ -116,7 +119,7 @@
             this.clonedDbNameTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.clonedDbNameTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.clonedDbNameTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.clonedDbNameTextBox.FocusedState.BorderColor = System.Drawing.Color.Gray;
+            this.clonedDbNameTextBox.FocusedState.BorderColor = System.Drawing.Color.Transparent;
             this.clonedDbNameTextBox.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.clonedDbNameTextBox.ForeColor = System.Drawing.Color.Gray;
             this.clonedDbNameTextBox.HoverState.BorderColor = System.Drawing.Color.Gray;
@@ -129,15 +132,15 @@
             this.clonedDbNameTextBox.PlaceholderText = "";
             this.clonedDbNameTextBox.SelectedText = "";
             this.clonedDbNameTextBox.Size = new System.Drawing.Size(349, 44);
-            this.clonedDbNameTextBox.TabIndex = 14;
+            this.clonedDbNameTextBox.TabIndex = 1;
             // 
             // logoutIcon
             // 
             this.logoutIcon.Cursor = System.Windows.Forms.Cursors.Hand;
             this.logoutIcon.Image = global::CopyBase.Properties.Resources.logout;
-            this.logoutIcon.Location = new System.Drawing.Point(31, 25);
+            this.logoutIcon.Location = new System.Drawing.Point(27, 21);
             this.logoutIcon.Name = "logoutIcon";
-            this.logoutIcon.Size = new System.Drawing.Size(24, 24);
+            this.logoutIcon.Size = new System.Drawing.Size(25, 25);
             this.logoutIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.logoutIcon.TabIndex = 13;
             this.logoutIcon.TabStop = false;
@@ -178,7 +181,7 @@
             this.emailLabel.AutoSize = true;
             this.emailLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
             this.emailLabel.ForeColor = System.Drawing.Color.Gray;
-            this.emailLabel.Location = new System.Drawing.Point(27, 55);
+            this.emailLabel.Location = new System.Drawing.Point(60, 45);
             this.emailLabel.Name = "emailLabel";
             this.emailLabel.Size = new System.Drawing.Size(138, 15);
             this.emailLabel.TabIndex = 8;
@@ -187,13 +190,14 @@
             // fullNameLabel
             // 
             this.fullNameLabel.AutoSize = true;
-            this.fullNameLabel.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.fullNameLabel.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.fullNameLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.fullNameLabel.Location = new System.Drawing.Point(57, 15);
+            this.fullNameLabel.Location = new System.Drawing.Point(54, 13);
             this.fullNameLabel.Name = "fullNameLabel";
             this.fullNameLabel.Size = new System.Drawing.Size(176, 37);
             this.fullNameLabel.TabIndex = 7;
             this.fullNameLabel.Text = "Name Holder";
+            this.fullNameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // clonedDbNameLabel
             // 
@@ -203,9 +207,9 @@
             this.clonedDbNameLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.clonedDbNameLabel.Location = new System.Drawing.Point(22, 178);
             this.clonedDbNameLabel.Name = "clonedDbNameLabel";
-            this.clonedDbNameLabel.Size = new System.Drawing.Size(199, 25);
+            this.clonedDbNameLabel.Size = new System.Drawing.Size(59, 25);
             this.clonedDbNameLabel.TabIndex = 5;
-            this.clonedDbNameLabel.Text = "Cloned Database Name";
+            this.clonedDbNameLabel.Text = "Name";
             // 
             // clonedDbDirLabel
             // 
@@ -215,9 +219,9 @@
             this.clonedDbDirLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.clonedDbDirLabel.Location = new System.Drawing.Point(22, 258);
             this.clonedDbDirLabel.Name = "clonedDbDirLabel";
-            this.clonedDbDirLabel.Size = new System.Drawing.Size(224, 25);
+            this.clonedDbDirLabel.Size = new System.Drawing.Size(84, 25);
             this.clonedDbDirLabel.TabIndex = 4;
-            this.clonedDbDirLabel.Text = "Cloned Database Directory";
+            this.clonedDbDirLabel.Text = "Directory";
             // 
             // dbToCloneLabel
             // 
@@ -240,7 +244,7 @@
             this.clonedDbDirTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.clonedDbDirTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.clonedDbDirTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.clonedDbDirTextBox.FocusedState.BorderColor = System.Drawing.Color.Gray;
+            this.clonedDbDirTextBox.FocusedState.BorderColor = System.Drawing.Color.Transparent;
             this.clonedDbDirTextBox.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.clonedDbDirTextBox.ForeColor = System.Drawing.Color.Gray;
             this.clonedDbDirTextBox.HoverState.BorderColor = System.Drawing.Color.Gray;
@@ -254,7 +258,7 @@
             this.clonedDbDirTextBox.ReadOnly = true;
             this.clonedDbDirTextBox.SelectedText = "";
             this.clonedDbDirTextBox.Size = new System.Drawing.Size(349, 44);
-            this.clonedDbDirTextBox.TabIndex = 15;
+            this.clonedDbDirTextBox.TabIndex = 2;
             // 
             // CloneForm
             // 

@@ -86,7 +86,7 @@
             this.loginButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.loginButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.loginButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.loginButton.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.loginButton.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.loginButton.ForeColor = System.Drawing.Color.White;
             this.loginButton.Location = new System.Drawing.Point(27, 357);
             this.loginButton.Name = "loginButton";
@@ -94,6 +94,7 @@
             this.loginButton.TabIndex = 13;
             this.loginButton.Text = "Login";
             this.loginButton.Click += new System.EventHandler(this.loginButton_Click);
+            this.loginButton.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EnterKeyDown);
             // 
             // rememberMeCheckBox
             // 
@@ -124,7 +125,7 @@
             this.passwordTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.passwordTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.passwordTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.passwordTextBox.FocusedState.BorderColor = System.Drawing.Color.Gray;
+            this.passwordTextBox.FocusedState.BorderColor = System.Drawing.Color.Transparent;
             this.passwordTextBox.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.passwordTextBox.ForeColor = System.Drawing.Color.Gray;
             this.passwordTextBox.HoverState.BorderColor = System.Drawing.Color.Gray;
@@ -138,6 +139,7 @@
             this.passwordTextBox.SelectedText = "";
             this.passwordTextBox.Size = new System.Drawing.Size(349, 44);
             this.passwordTextBox.TabIndex = 11;
+            this.passwordTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EnterKeyDown);
             // 
             // emailTextBox
             // 
@@ -148,11 +150,11 @@
             this.emailTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.emailTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.emailTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.emailTextBox.FocusedState.BorderColor = System.Drawing.Color.Gray;
+            this.emailTextBox.FocusedState.BorderColor = System.Drawing.Color.Transparent;
             this.emailTextBox.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.emailTextBox.ForeColor = System.Drawing.Color.Gray;
             this.emailTextBox.HoverState.BorderColor = System.Drawing.Color.Gray;
-            this.emailTextBox.Location = new System.Drawing.Point(27, 149);
+            this.emailTextBox.Location = new System.Drawing.Point(27, 150);
             this.emailTextBox.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.emailTextBox.MaxLength = 35;
             this.emailTextBox.Name = "emailTextBox";
@@ -162,6 +164,7 @@
             this.emailTextBox.SelectedText = "";
             this.emailTextBox.Size = new System.Drawing.Size(349, 44);
             this.emailTextBox.TabIndex = 10;
+            this.emailTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EnterKeyDown);
             // 
             // logoImage
             // 

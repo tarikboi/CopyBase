@@ -28,95 +28,110 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.deleteDescriptionLabel = new System.Windows.Forms.Label();
             this.deleteDatabaseLabel = new System.Windows.Forms.Label();
-            this.deleteButton = new System.Windows.Forms.Button();
-            this.cancelButton = new System.Windows.Forms.Button();
+            this.deleteButton = new Siticone.Desktop.UI.WinForms.SiticoneButton();
+            this.cancelButton = new Siticone.Desktop.UI.WinForms.SiticoneButton();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.deleteDescriptionLabel);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(399, 316);
-            this.panel1.TabIndex = 0;
             // 
             // deleteDescriptionLabel
             // 
             this.deleteDescriptionLabel.AutoSize = true;
-            this.deleteDescriptionLabel.Location = new System.Drawing.Point(70, 116);
+            this.deleteDescriptionLabel.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.deleteDescriptionLabel.Location = new System.Drawing.Point(43, 104);
             this.deleteDescriptionLabel.Name = "deleteDescriptionLabel";
             this.deleteDescriptionLabel.Size = new System.Drawing.Size(269, 40);
             this.deleteDescriptionLabel.TabIndex = 7;
             this.deleteDescriptionLabel.Text = "Are you sure you want to proceed? This\r\naction will delete all data.";
-            this.deleteDescriptionLabel.Click += new System.EventHandler(this.deleteDescriptionLabel_Click);
+            this.deleteDescriptionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // deleteDatabaseLabel
             // 
             this.deleteDatabaseLabel.AutoSize = true;
-            this.deleteDatabaseLabel.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.deleteDatabaseLabel.Location = new System.Drawing.Point(109, 40);
+            this.deleteDatabaseLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.deleteDatabaseLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.deleteDatabaseLabel.Location = new System.Drawing.Point(80, 52);
             this.deleteDatabaseLabel.Name = "deleteDatabaseLabel";
-            this.deleteDatabaseLabel.Size = new System.Drawing.Size(207, 32);
+            this.deleteDatabaseLabel.Size = new System.Drawing.Size(196, 30);
             this.deleteDatabaseLabel.TabIndex = 6;
             this.deleteDatabaseLabel.Text = "DELETE DATABASE";
-            this.deleteDatabaseLabel.Click += new System.EventHandler(this.deleteDatabaseLabel_Click);
+            this.deleteDatabaseLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // deleteButton
             // 
-            this.deleteButton.Location = new System.Drawing.Point(221, 229);
-            this.deleteButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.deleteButton.BackColor = System.Drawing.Color.White;
+            this.deleteButton.BorderRadius = 8;
+            this.deleteButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.deleteButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.deleteButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.deleteButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.deleteButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.deleteButton.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.deleteButton.ForeColor = System.Drawing.Color.White;
+            this.deleteButton.Location = new System.Drawing.Point(182, 188);
             this.deleteButton.Name = "deleteButton";
-            this.deleteButton.Size = new System.Drawing.Size(146, 47);
-            this.deleteButton.TabIndex = 5;
+            this.deleteButton.Size = new System.Drawing.Size(155, 37);
+            this.deleteButton.TabIndex = 16;
             this.deleteButton.Text = "Delete";
-            this.deleteButton.UseVisualStyleBackColor = true;
             this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
             // 
             // cancelButton
             // 
-            this.cancelButton.Location = new System.Drawing.Point(32, 229);
-            this.cancelButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.cancelButton.BackColor = System.Drawing.Color.White;
+            this.cancelButton.BorderRadius = 8;
+            this.cancelButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.cancelButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.cancelButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.cancelButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.cancelButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.cancelButton.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.cancelButton.ForeColor = System.Drawing.Color.White;
+            this.cancelButton.Location = new System.Drawing.Point(12, 188);
             this.cancelButton.Name = "cancelButton";
-            this.cancelButton.Size = new System.Drawing.Size(146, 47);
-            this.cancelButton.TabIndex = 4;
+            this.cancelButton.Size = new System.Drawing.Size(155, 37);
+            this.cancelButton.TabIndex = 17;
             this.cancelButton.Text = "Cancel";
-            this.cancelButton.UseVisualStyleBackColor = true;
             this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.cancelButton);
+            this.panel1.Controls.Add(this.deleteButton);
+            this.panel1.Controls.Add(this.deleteDatabaseLabel);
+            this.panel1.Controls.Add(this.deleteDescriptionLabel);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(349, 237);
+            this.panel1.TabIndex = 0;
             // 
             // ConfirmationDeleteForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(399, 316);
-            this.Controls.Add(this.deleteDatabaseLabel);
-            this.Controls.Add(this.deleteButton);
-            this.Controls.Add(this.cancelButton);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(349, 237);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "ConfirmationDeleteForm";
-            this.Text = "ConfirmationExitForm";
-            this.Load += new System.EventHandler(this.ConfirmationDeleteForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private Panel panel1;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private Label deleteDescriptionLabel;
         private Label deleteDatabaseLabel;
-        private Button deleteButton;
-        private Button cancelButton;
+        private Siticone.Desktop.UI.WinForms.SiticoneButton deleteButton;
+        private Siticone.Desktop.UI.WinForms.SiticoneButton cancelButton;
+        private Panel panel1;
     }
 }
