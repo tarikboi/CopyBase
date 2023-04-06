@@ -31,12 +31,12 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RunningCloneForm));
             this.panel = new System.Windows.Forms.Panel();
+            this.copyIcon = new System.Windows.Forms.PictureBox();
             this.logoutIcon = new System.Windows.Forms.PictureBox();
             this.runningTimeLabel = new System.Windows.Forms.Label();
             this.timerLabel = new System.Windows.Forms.Label();
             this.label = new System.Windows.Forms.Label();
             this.copyIconPanel = new System.Windows.Forms.Panel();
-            this.copyIcon = new System.Windows.Forms.PictureBox();
             this.clonedDbConnectionStringTextBox = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
             this.logsButton = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             this.resetButton = new Siticone.Desktop.UI.WinForms.SiticoneButton();
@@ -46,14 +46,14 @@
             this.fullNameLabel = new System.Windows.Forms.Label();
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.panel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.logoutIcon)).BeginInit();
-            this.copyIconPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.copyIcon)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.logoutIcon)).BeginInit();
             this.SuspendLayout();
             // 
             // panel
             // 
             this.panel.BackColor = System.Drawing.Color.White;
+            this.panel.Controls.Add(this.copyIcon);
             this.panel.Controls.Add(this.logoutIcon);
             this.panel.Controls.Add(this.runningTimeLabel);
             this.panel.Controls.Add(this.timerLabel);
@@ -69,14 +69,26 @@
             this.panel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel.Location = new System.Drawing.Point(0, 0);
             this.panel.Name = "panel";
-            this.panel.Size = new System.Drawing.Size(403, 434);
+            this.panel.Size = new System.Drawing.Size(403, 378);
             this.panel.TabIndex = 0;
+            // 
+            // copyIcon
+            // 
+            this.copyIcon.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.copyIcon.Image = global::CopyBase.Properties.Resources.copy;
+            this.copyIcon.Location = new System.Drawing.Point(341, 163);
+            this.copyIcon.Name = "copyIcon";
+            this.copyIcon.Size = new System.Drawing.Size(20, 20);
+            this.copyIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.copyIcon.TabIndex = 0;
+            this.copyIcon.TabStop = false;
+            this.copyIcon.Click += new System.EventHandler(this.copyIcon_Click);
             // 
             // logoutIcon
             // 
             this.logoutIcon.Cursor = System.Windows.Forms.Cursors.Hand;
             this.logoutIcon.Image = global::CopyBase.Properties.Resources.logout;
-            this.logoutIcon.Location = new System.Drawing.Point(27, 24);
+            this.logoutIcon.Location = new System.Drawing.Point(27, 23);
             this.logoutIcon.Name = "logoutIcon";
             this.logoutIcon.Size = new System.Drawing.Size(25, 25);
             this.logoutIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -89,7 +101,7 @@
             this.runningTimeLabel.AutoSize = true;
             this.runningTimeLabel.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.runningTimeLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.runningTimeLabel.Location = new System.Drawing.Point(27, 177);
+            this.runningTimeLabel.Location = new System.Drawing.Point(27, 118);
             this.runningTimeLabel.Name = "runningTimeLabel";
             this.runningTimeLabel.Size = new System.Drawing.Size(103, 20);
             this.runningTimeLabel.TabIndex = 23;
@@ -100,7 +112,7 @@
             this.timerLabel.AutoSize = true;
             this.timerLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.timerLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.timerLabel.Location = new System.Drawing.Point(129, 177);
+            this.timerLabel.Location = new System.Drawing.Point(129, 118);
             this.timerLabel.Name = "timerLabel";
             this.timerLabel.Size = new System.Drawing.Size(65, 20);
             this.timerLabel.TabIndex = 22;
@@ -109,34 +121,22 @@
             // label
             // 
             this.label.AutoSize = true;
-            this.label.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
+            this.label.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label.Location = new System.Drawing.Point(292, 177);
+            this.label.Location = new System.Drawing.Point(235, 118);
             this.label.Name = "label";
-            this.label.Size = new System.Drawing.Size(0, 20);
+            this.label.Size = new System.Drawing.Size(141, 20);
             this.label.TabIndex = 21;
-            this.label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label.Text = "Clone successfull✔";
+            this.label.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // copyIconPanel
             // 
-            this.copyIconPanel.Controls.Add(this.copyIcon);
             this.copyIconPanel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.copyIconPanel.Location = new System.Drawing.Point(335, 215);
+            this.copyIconPanel.Location = new System.Drawing.Point(335, 156);
             this.copyIconPanel.Name = "copyIconPanel";
             this.copyIconPanel.Size = new System.Drawing.Size(33, 33);
             this.copyIconPanel.TabIndex = 19;
-            // 
-            // copyIcon
-            // 
-            this.copyIcon.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.copyIcon.Image = global::CopyBase.Properties.Resources.copy;
-            this.copyIcon.Location = new System.Drawing.Point(6, 7);
-            this.copyIcon.Name = "copyIcon";
-            this.copyIcon.Size = new System.Drawing.Size(20, 20);
-            this.copyIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.copyIcon.TabIndex = 0;
-            this.copyIcon.TabStop = false;
-            this.copyIcon.Click += new System.EventHandler(this.copyIcon_Click);
             // 
             // clonedDbConnectionStringTextBox
             // 
@@ -151,7 +151,7 @@
             this.clonedDbConnectionStringTextBox.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.clonedDbConnectionStringTextBox.ForeColor = System.Drawing.Color.Gray;
             this.clonedDbConnectionStringTextBox.HoverState.BorderColor = System.Drawing.Color.Gray;
-            this.clonedDbConnectionStringTextBox.Location = new System.Drawing.Point(27, 206);
+            this.clonedDbConnectionStringTextBox.Location = new System.Drawing.Point(27, 147);
             this.clonedDbConnectionStringTextBox.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.clonedDbConnectionStringTextBox.MaxLength = 35;
             this.clonedDbConnectionStringTextBox.Name = "clonedDbConnectionStringTextBox";
@@ -174,7 +174,7 @@
             this.logsButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.logsButton.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.logsButton.ForeColor = System.Drawing.Color.White;
-            this.logsButton.Location = new System.Drawing.Point(268, 268);
+            this.logsButton.Location = new System.Drawing.Point(268, 209);
             this.logsButton.Name = "logsButton";
             this.logsButton.Size = new System.Drawing.Size(108, 37);
             this.logsButton.TabIndex = 17;
@@ -190,7 +190,7 @@
             this.resetButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.resetButton.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.resetButton.ForeColor = System.Drawing.Color.White;
-            this.resetButton.Location = new System.Drawing.Point(147, 268);
+            this.resetButton.Location = new System.Drawing.Point(147, 209);
             this.resetButton.Name = "resetButton";
             this.resetButton.Size = new System.Drawing.Size(108, 37);
             this.resetButton.TabIndex = 16;
@@ -207,7 +207,7 @@
             this.openButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.openButton.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.openButton.ForeColor = System.Drawing.Color.White;
-            this.openButton.Location = new System.Drawing.Point(27, 268);
+            this.openButton.Location = new System.Drawing.Point(27, 209);
             this.openButton.Name = "openButton";
             this.openButton.Size = new System.Drawing.Size(108, 37);
             this.openButton.TabIndex = 15;
@@ -224,7 +224,7 @@
             this.deleteCloneButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.deleteCloneButton.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.deleteCloneButton.ForeColor = System.Drawing.Color.White;
-            this.deleteCloneButton.Location = new System.Drawing.Point(27, 357);
+            this.deleteCloneButton.Location = new System.Drawing.Point(27, 299);
             this.deleteCloneButton.Name = "deleteCloneButton";
             this.deleteCloneButton.Size = new System.Drawing.Size(349, 50);
             this.deleteCloneButton.TabIndex = 14;
@@ -261,7 +261,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(403, 434);
+            this.ClientSize = new System.Drawing.Size(403, 378);
             this.Controls.Add(this.panel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -271,9 +271,8 @@
             this.Load += new System.EventHandler(this.RunningCloneForm_Load);
             this.panel.ResumeLayout(false);
             this.panel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.logoutIcon)).EndInit();
-            this.copyIconPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.copyIcon)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.logoutIcon)).EndInit();
             this.ResumeLayout(false);
 
         }

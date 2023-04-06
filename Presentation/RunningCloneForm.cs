@@ -33,6 +33,16 @@ namespace CopyBase
             elapsedTime = TimeSpan.Zero;
             timerLabel.Text = "00:00:00";
             timer.Start();
+
+            //Hide status label after 5 seconds
+            var timer2 = new Timer();
+            timer2.Interval = 5000;
+            timer2.Tick += (s, args) =>
+            {
+                label.Visible = false;
+                timer2.Stop();
+            };
+            timer2.Start();
         }
 
         private void deleteCloneButton_Click(object sender, EventArgs e)
@@ -77,9 +87,27 @@ namespace CopyBase
             }
         }
 
-        private void openButton_Click(object sender, EventArgs e)
+        private async void openButton_Click(object sender, EventArgs e)
         {
+            label.Text = "Opening...";
+            label.Visible = true;
+
+            await Task.Delay(5000);
+
             _cloneManager.OpenClonedDatabase();
+
+            label.Text = "Opened✔";
+            label.Visible = true;
+
+            // Hide the "Reset done!" label after 5 seconds
+            var timer = new Timer();
+            timer.Interval = 5000;
+            timer.Tick += (s, args) =>
+            {
+                label.Visible = false;
+                timer.Stop();
+            };
+            timer.Start();
         }
 
         private async void resetButton_Click(object sender, EventArgs e)
@@ -91,23 +119,21 @@ namespace CopyBase
 
             if (result == DialogResult.OK)
             {
-                // Show "Resetting..." label
                 label.Text = "Resetting...";
+
                 label.Visible = true;
 
-                // Wait for 1 second to give the user a chance to read the "Resetting..." label
+                //Wait for 1 second to give the user a chance to read the "Resetting..." label
                 await Task.Delay(1000);
 
-                // Call the ResetClonedDatabase method
                 _cloneManager.ResetClonedDatabase();
 
-                // Show "Reset done!" label
-                label.Text = "Reset done!";
+                label.Text = "Reset done✔";
                 label.Visible = true;
 
                 // Hide the "Reset done!" label after 2 seconds
                 var timer = new Timer();
-                timer.Interval = 2000;
+                timer.Interval = 5000;
                 timer.Tick += (s, args) =>
                 {
                     label.Visible = false;
