@@ -1,10 +1,15 @@
 using CopyBase.Domain;
-using System.DirectoryServices.AccountManagement;
+using CopyBase.Domain.Interfaces;
+using System.Drawing.Text;
+using System.Drawing;
+using System.Runtime.InteropServices;
 
 namespace CopyBase
 {
     public partial class LoginForm : Form
     {
+        private readonly ILoginManager _loginManager = new LoginManager();
+
         public LoginForm()
         {
             InitializeComponent();
@@ -12,21 +17,22 @@ namespace CopyBase
 
         private void LoginForm_Load(object sender, EventArgs e)
         {
-
+            passwordTextBox.UseSystemPasswordChar = true;
+            incorrectLoginText.Text = "";
         }
-
 
         private void loginButton_Click(object sender, EventArgs e)
         {
-            if (LoginManager.VerifyCredentials(emailTextBox.Text, passwordTextBox.Text))
+            if (_loginManager.VerifyCredentials(emailTextBox.Text, passwordTextBox.Text))
             {
-                LoginManager.CreateUser(emailTextBox.Text);
+                _loginManager.CreateUser(emailTextBox.Text);
 
                 if (rememberMeCheckBox.Checked)
                 {
-                    LoginManager.SetRememberMe(emailTextBox.Text);
+                    _loginManager.SetRememberMe(emailTextBox.Text);
                 }
 
+                //Create instance of ICloneManager
                 //Switch to CloneForm
                 CloneForm cf = new CloneForm();
                 cf.StartPosition = FormStartPosition.Manual;
@@ -36,32 +42,20 @@ namespace CopyBase
             }
             else
             {
-                // handle wrong credentials
+                emailTextBox.BorderColor = Color.Red;
+                passwordTextBox.BorderColor = Color.Red;
+
+                //Set up a timer to change the border color back to gray after 1 second
+                var timer = new System.Windows.Forms.Timer();
+                timer.Interval = 2000; 
+                timer.Tick += (s, args) =>
+                {
+                    emailTextBox.BorderColor = Color.Gray;
+                    passwordTextBox.BorderColor = Color.Gray;
+                    timer.Stop();
+                };
+                timer.Start();
             }
-        }
-
-        private void textBox1_TextChanged_1(object sender, EventArgs e)
-        {
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void backgroundWorker1_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
-        {
-
         }
 
         private void LoginForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -69,9 +63,24 @@ namespace CopyBase
             Application.Exit();
         }
 
-        private void mainPanel_Paint(object sender, PaintEventArgs e)
+        private void viewPassIcon_MouseDown(object sender, MouseEventArgs e)
         {
+            viewPassIcon.Image = Properties.Resources.unview;
+            passwordTextBox.UseSystemPasswordChar = false;
+        }
 
+        private void viewPassIcon_MouseUp(object sender, MouseEventArgs e)
+        {
+            viewPassIcon.Image = Properties.Resources.view;
+            passwordTextBox.UseSystemPasswordChar = true;
+        }
+
+        private void EnterKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                loginButton_Click(sender, e);
+            }
         }
     }
 }

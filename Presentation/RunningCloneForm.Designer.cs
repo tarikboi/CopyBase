@@ -28,92 +28,214 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RunningCloneForm));
             this.panel = new System.Windows.Forms.Panel();
-            this.openButton = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.ClonedDbPath = new System.Windows.Forms.TextBox();
-            this.resetButton = new System.Windows.Forms.Button();
-            this.logsButton = new System.Windows.Forms.Button();
-            this.deleteCloneButton = new System.Windows.Forms.Button();
+            this.copyIcon = new System.Windows.Forms.PictureBox();
+            this.logoutIcon = new System.Windows.Forms.PictureBox();
+            this.runningTimeLabel = new System.Windows.Forms.Label();
+            this.timerLabel = new System.Windows.Forms.Label();
+            this.label = new System.Windows.Forms.Label();
+            this.copyIconPanel = new System.Windows.Forms.Panel();
+            this.clonedDbConnectionStringTextBox = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
+            this.logsButton = new Siticone.Desktop.UI.WinForms.SiticoneButton();
+            this.resetButton = new Siticone.Desktop.UI.WinForms.SiticoneButton();
+            this.openButton = new Siticone.Desktop.UI.WinForms.SiticoneButton();
+            this.deleteCloneButton = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             this.emailLabel = new System.Windows.Forms.Label();
             this.fullNameLabel = new System.Windows.Forms.Label();
+            this.timer = new System.Windows.Forms.Timer(this.components);
             this.panel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.copyIcon)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.logoutIcon)).BeginInit();
             this.SuspendLayout();
             // 
             // panel
             // 
-            this.panel.Controls.Add(this.emailLabel);
-            this.panel.Controls.Add(this.fullNameLabel);
-            this.panel.Controls.Add(this.deleteCloneButton);
+            this.panel.BackColor = System.Drawing.Color.White;
+            this.panel.Controls.Add(this.copyIcon);
+            this.panel.Controls.Add(this.logoutIcon);
+            this.panel.Controls.Add(this.runningTimeLabel);
+            this.panel.Controls.Add(this.timerLabel);
+            this.panel.Controls.Add(this.label);
+            this.panel.Controls.Add(this.copyIconPanel);
+            this.panel.Controls.Add(this.clonedDbConnectionStringTextBox);
             this.panel.Controls.Add(this.logsButton);
             this.panel.Controls.Add(this.resetButton);
             this.panel.Controls.Add(this.openButton);
-            this.panel.Controls.Add(this.label1);
-            this.panel.Controls.Add(this.ClonedDbPath);
+            this.panel.Controls.Add(this.deleteCloneButton);
+            this.panel.Controls.Add(this.emailLabel);
+            this.panel.Controls.Add(this.fullNameLabel);
             this.panel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel.Location = new System.Drawing.Point(0, 0);
             this.panel.Name = "panel";
-            this.panel.Size = new System.Drawing.Size(403, 434);
+            this.panel.Size = new System.Drawing.Size(403, 378);
             this.panel.TabIndex = 0;
             // 
-            // openButton
+            // copyIcon
             // 
-            this.openButton.Location = new System.Drawing.Point(33, 282);
-            this.openButton.Name = "openButton";
-            this.openButton.Size = new System.Drawing.Size(97, 33);
-            this.openButton.TabIndex = 2;
-            this.openButton.Text = "Open";
-            this.openButton.UseVisualStyleBackColor = true;
+            this.copyIcon.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.copyIcon.Image = global::CopyBase.Properties.Resources.copy;
+            this.copyIcon.Location = new System.Drawing.Point(341, 163);
+            this.copyIcon.Name = "copyIcon";
+            this.copyIcon.Size = new System.Drawing.Size(20, 20);
+            this.copyIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.copyIcon.TabIndex = 0;
+            this.copyIcon.TabStop = false;
+            this.copyIcon.Click += new System.EventHandler(this.copyIcon_Click);
             // 
-            // label1
+            // logoutIcon
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(43, 136);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(317, 19);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Database successfully cloned to environment: local";
+            this.logoutIcon.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.logoutIcon.Image = global::CopyBase.Properties.Resources.logout;
+            this.logoutIcon.Location = new System.Drawing.Point(27, 23);
+            this.logoutIcon.Name = "logoutIcon";
+            this.logoutIcon.Size = new System.Drawing.Size(25, 25);
+            this.logoutIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.logoutIcon.TabIndex = 24;
+            this.logoutIcon.TabStop = false;
+            this.logoutIcon.Click += new System.EventHandler(this.logoutIcon_Click);
             // 
-            // ClonedDbPath
+            // runningTimeLabel
             // 
-            this.ClonedDbPath.Location = new System.Drawing.Point(33, 239);
-            this.ClonedDbPath.Name = "ClonedDbPath";
-            this.ClonedDbPath.ReadOnly = true;
-            this.ClonedDbPath.Size = new System.Drawing.Size(340, 23);
-            this.ClonedDbPath.TabIndex = 0;
+            this.runningTimeLabel.AutoSize = true;
+            this.runningTimeLabel.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.runningTimeLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.runningTimeLabel.Location = new System.Drawing.Point(27, 118);
+            this.runningTimeLabel.Name = "runningTimeLabel";
+            this.runningTimeLabel.Size = new System.Drawing.Size(103, 20);
+            this.runningTimeLabel.TabIndex = 23;
+            this.runningTimeLabel.Text = "Running Time:";
             // 
-            // resetButton
+            // timerLabel
             // 
-            this.resetButton.Location = new System.Drawing.Point(155, 282);
-            this.resetButton.Name = "resetButton";
-            this.resetButton.Size = new System.Drawing.Size(97, 33);
-            this.resetButton.TabIndex = 3;
-            this.resetButton.Text = "Reset";
-            this.resetButton.UseVisualStyleBackColor = true;
+            this.timerLabel.AutoSize = true;
+            this.timerLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.timerLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.timerLabel.Location = new System.Drawing.Point(129, 118);
+            this.timerLabel.Name = "timerLabel";
+            this.timerLabel.Size = new System.Drawing.Size(65, 20);
+            this.timerLabel.TabIndex = 22;
+            this.timerLabel.Text = "00:00:00";
+            // 
+            // label
+            // 
+            this.label.AutoSize = true;
+            this.label.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label.Location = new System.Drawing.Point(235, 118);
+            this.label.Name = "label";
+            this.label.Size = new System.Drawing.Size(141, 20);
+            this.label.TabIndex = 21;
+            this.label.Text = "Clone successfull✔";
+            this.label.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // copyIconPanel
+            // 
+            this.copyIconPanel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.copyIconPanel.Location = new System.Drawing.Point(335, 156);
+            this.copyIconPanel.Name = "copyIconPanel";
+            this.copyIconPanel.Size = new System.Drawing.Size(33, 33);
+            this.copyIconPanel.TabIndex = 19;
+            // 
+            // clonedDbConnectionStringTextBox
+            // 
+            this.clonedDbConnectionStringTextBox.BorderColor = System.Drawing.Color.Silver;
+            this.clonedDbConnectionStringTextBox.BorderRadius = 8;
+            this.clonedDbConnectionStringTextBox.DefaultText = "";
+            this.clonedDbConnectionStringTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.clonedDbConnectionStringTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.clonedDbConnectionStringTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.clonedDbConnectionStringTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.clonedDbConnectionStringTextBox.FocusedState.BorderColor = System.Drawing.Color.Gray;
+            this.clonedDbConnectionStringTextBox.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.clonedDbConnectionStringTextBox.ForeColor = System.Drawing.Color.Gray;
+            this.clonedDbConnectionStringTextBox.HoverState.BorderColor = System.Drawing.Color.Gray;
+            this.clonedDbConnectionStringTextBox.Location = new System.Drawing.Point(27, 147);
+            this.clonedDbConnectionStringTextBox.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.clonedDbConnectionStringTextBox.MaxLength = 35;
+            this.clonedDbConnectionStringTextBox.Name = "clonedDbConnectionStringTextBox";
+            this.clonedDbConnectionStringTextBox.PasswordChar = '\0';
+            this.clonedDbConnectionStringTextBox.PlaceholderForeColor = System.Drawing.Color.Gray;
+            this.clonedDbConnectionStringTextBox.PlaceholderText = "";
+            this.clonedDbConnectionStringTextBox.ReadOnly = true;
+            this.clonedDbConnectionStringTextBox.SelectedText = "";
+            this.clonedDbConnectionStringTextBox.Size = new System.Drawing.Size(349, 50);
+            this.clonedDbConnectionStringTextBox.TabIndex = 20;
             // 
             // logsButton
             // 
-            this.logsButton.Location = new System.Drawing.Point(276, 282);
+            this.logsButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.logsButton.BorderRadius = 8;
+            this.logsButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.logsButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.logsButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.logsButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.logsButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.logsButton.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.logsButton.ForeColor = System.Drawing.Color.White;
+            this.logsButton.Location = new System.Drawing.Point(268, 209);
             this.logsButton.Name = "logsButton";
-            this.logsButton.Size = new System.Drawing.Size(97, 33);
-            this.logsButton.TabIndex = 4;
+            this.logsButton.Size = new System.Drawing.Size(108, 37);
+            this.logsButton.TabIndex = 17;
             this.logsButton.Text = "Logs";
-            this.logsButton.UseVisualStyleBackColor = true;
+            // 
+            // resetButton
+            // 
+            this.resetButton.BorderRadius = 8;
+            this.resetButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.resetButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.resetButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.resetButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.resetButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.resetButton.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.resetButton.ForeColor = System.Drawing.Color.White;
+            this.resetButton.Location = new System.Drawing.Point(147, 209);
+            this.resetButton.Name = "resetButton";
+            this.resetButton.Size = new System.Drawing.Size(108, 37);
+            this.resetButton.TabIndex = 16;
+            this.resetButton.Text = "Reset";
+            this.resetButton.Click += new System.EventHandler(this.resetButton_Click);
+            // 
+            // openButton
+            // 
+            this.openButton.BorderRadius = 8;
+            this.openButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.openButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.openButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.openButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.openButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.openButton.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.openButton.ForeColor = System.Drawing.Color.White;
+            this.openButton.Location = new System.Drawing.Point(27, 209);
+            this.openButton.Name = "openButton";
+            this.openButton.Size = new System.Drawing.Size(108, 37);
+            this.openButton.TabIndex = 15;
+            this.openButton.Text = "Open";
+            this.openButton.Click += new System.EventHandler(this.openButton_Click);
             // 
             // deleteCloneButton
             // 
-            this.deleteCloneButton.Location = new System.Drawing.Point(33, 364);
+            this.deleteCloneButton.BorderRadius = 8;
+            this.deleteCloneButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.deleteCloneButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.deleteCloneButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.deleteCloneButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.deleteCloneButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.deleteCloneButton.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.deleteCloneButton.ForeColor = System.Drawing.Color.White;
+            this.deleteCloneButton.Location = new System.Drawing.Point(27, 299);
             this.deleteCloneButton.Name = "deleteCloneButton";
-            this.deleteCloneButton.Size = new System.Drawing.Size(340, 33);
-            this.deleteCloneButton.TabIndex = 5;
+            this.deleteCloneButton.Size = new System.Drawing.Size(349, 50);
+            this.deleteCloneButton.TabIndex = 14;
             this.deleteCloneButton.Text = "Delete Clone";
-            this.deleteCloneButton.UseVisualStyleBackColor = true;
+            this.deleteCloneButton.Click += new System.EventHandler(this.deleteCloneButton_Click);
             // 
             // emailLabel
             // 
             this.emailLabel.AutoSize = true;
-            this.emailLabel.Location = new System.Drawing.Point(85, 61);
+            this.emailLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.emailLabel.Location = new System.Drawing.Point(60, 45);
             this.emailLabel.Name = "emailLabel";
             this.emailLabel.Size = new System.Drawing.Size(141, 15);
             this.emailLabel.TabIndex = 10;
@@ -123,22 +245,34 @@
             // 
             this.fullNameLabel.AutoSize = true;
             this.fullNameLabel.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.fullNameLabel.Location = new System.Drawing.Point(76, 24);
+            this.fullNameLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.fullNameLabel.Location = new System.Drawing.Point(53, 11);
             this.fullNameLabel.Name = "fullNameLabel";
             this.fullNameLabel.Size = new System.Drawing.Size(176, 37);
             this.fullNameLabel.TabIndex = 9;
             this.fullNameLabel.Text = "Name Holder";
             // 
+            // timer
+            // 
+            this.timer.Interval = 1000;
+            this.timer.Tick += new System.EventHandler(this.timer_Tick);
+            // 
             // RunningCloneForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(403, 434);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.ClientSize = new System.Drawing.Size(403, 378);
             this.Controls.Add(this.panel);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "RunningCloneForm";
-            this.Text = "RunningCloneForm";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.RunningCloneForm_FormClosing);
+            this.Load += new System.EventHandler(this.RunningCloneForm_Load);
             this.panel.ResumeLayout(false);
             this.panel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.copyIcon)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.logoutIcon)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -146,13 +280,19 @@
         #endregion
 
         private Panel panel;
-        private TextBox ClonedDbPath;
-        private Button openButton;
-        private Label label1;
-        private Button logsButton;
-        private Button resetButton;
-        private Button deleteCloneButton;
         private Label emailLabel;
         private Label fullNameLabel;
+        private Siticone.Desktop.UI.WinForms.SiticoneButton deleteCloneButton;
+        private Siticone.Desktop.UI.WinForms.SiticoneButton logsButton;
+        private Siticone.Desktop.UI.WinForms.SiticoneButton resetButton;
+        private Siticone.Desktop.UI.WinForms.SiticoneButton openButton;
+        private Panel copyIconPanel;
+        private PictureBox copyIcon;
+        private Siticone.Desktop.UI.WinForms.SiticoneTextBox clonedDbConnectionStringTextBox;
+        private System.Windows.Forms.Timer timer;
+        private Label label;
+        private Label timerLabel;
+        private Label runningTimeLabel;
+        private PictureBox logoutIcon;
     }
 }

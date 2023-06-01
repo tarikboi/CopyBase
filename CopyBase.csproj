@@ -9,12 +9,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Presentation\ConfirmationDialogForms\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Autofac" Version="7.0.0" />
-    <PackageReference Include="EntityFramework" Version="6.4.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.4" />
+    <PackageReference Include="SimpleInjector" Version="5.4.1" />
+    <PackageReference Include="Siticone.Desktop.UI" Version="2.1.1" />
     <PackageReference Include="System.DirectoryServices.AccountManagement" Version="7.0.0" />
   </ItemGroup>
 

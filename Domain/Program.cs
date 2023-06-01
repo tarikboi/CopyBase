@@ -1,4 +1,4 @@
-using System.Data.Entity;
+using CopyBase.Domain.Interfaces;
 
 namespace CopyBase.Domain
 {
@@ -10,12 +10,14 @@ namespace CopyBase.Domain
 
             ApplicationConfiguration.Initialize();
 
-
             if (LoginManager.RememberMeCheck())
             {
-                LoginManager.CreateUser("");
+                ILoginManager _loginManager = new LoginManager();
+                _loginManager.CreateUser("");
+
                 CloneForm cf = new CloneForm();
                 cf.Show();
+
             }
             else
             {

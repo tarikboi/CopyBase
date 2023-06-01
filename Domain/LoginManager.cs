@@ -1,15 +1,17 @@
 ﻿using System.DirectoryServices.AccountManagement;
 using System.Text;
 using System.Security.Cryptography;
+using CopyBase.Domain.Interfaces;
 
 namespace CopyBase.Domain
 {
-    internal class LoginManager
+    internal class LoginManager : ILoginManager
     {
-        public static string rememberMeFilePath = "C:\\Users\\tarik.oksuz\\TariksUsefulStuff\\Copybase\\RememberMeFile.txt";
+        public static string loggedInUsername = UserPrincipal.Current.SamAccountName;
+        public static string rememberMeFilePath = $"C:\\Users\\{loggedInUsername}\\AppData\\Local\\Copybase\\RememberMeFile.txt";
 
         //Verify user credentials
-        public static bool VerifyCredentials(string email, string password)
+        public bool VerifyCredentials(string email, string password)
         {
             bool response = false;
 
@@ -22,14 +24,14 @@ namespace CopyBase.Domain
             }
             catch (Exception e)
             {
-                MessageBox.Show("Make sure VPN is turned on!"); //this is temp
+                MessageBox.Show("Make sure VPN is turned on"); //this is temp
             }
             
             return response;
         }
 
         //Creates user and initializes user variables
-        public static void CreateUser(string userEmail)
+        public void CreateUser(string userEmail)
         {
             string fullName = "";
             string username = "";
@@ -54,22 +56,21 @@ namespace CopyBase.Domain
         }
 
         //Set Remember Me code in file
-        public static void SetRememberMe(string email)
+        public void SetRememberMe(string email)
         {
             string userRememberMeCode = GenerateRememberMeCode(email);
             File.WriteAllText(rememberMeFilePath, userRememberMeCode);
         }
 
+
+
         //Takes user email, hashes it and returns the unique code based on user email
         public static string GenerateRememberMeCode(string email)
         { 
-            // Create a new instance of the SHA256 hashing algorithm
             using (SHA256 sha256Hash = SHA256.Create())
             {
-                // Compute the hash of the combined string
                 byte[] bytes = sha256Hash.ComputeHash(Encoding.UTF8.GetBytes(email));
 
-                // Convert the hash to a string representation
                 StringBuilder builder = new StringBuilder();
                 for (int i = 0; i < bytes.Length; i++)
                 {
@@ -87,17 +88,16 @@ namespace CopyBase.Domain
 
             string windowsUserEmailAddress = "";
             string windowsUserRememberMeCode = "";
-            // Get the current user's windows email adress
+            //get the current user's windows email address
             try
             {
                 windowsUserEmailAddress = UserPrincipal.Current.EmailAddress;
                 windowsUserRememberMeCode = GenerateRememberMeCode(windowsUserEmailAddress);
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 return false;
             }
-
 
             //Check if the remember me file exists
             if (File.Exists(rememberMeFilePath))
@@ -112,9 +112,14 @@ namespace CopyBase.Domain
                     }
                 }
             }
-            // Else create a new file
+            //else create a new file
             else
             {
+                //Create the folders
+                string pathToFolder = Path.GetFullPath(Path.Combine(rememberMeFilePath, @"..\"));
+                Directory.CreateDirectory(pathToFolder);
+
+                //Create file
                 using (StreamWriter writer = new StreamWriter(rememberMeFilePath))
                 {
                     writer.WriteLine("blank");
