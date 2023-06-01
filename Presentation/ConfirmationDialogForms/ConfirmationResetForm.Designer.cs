@@ -65,7 +65,7 @@
             // 
             this.resetDescriptionLabel.AutoSize = true;
             this.resetDescriptionLabel.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.resetDescriptionLabel.Location = new System.Drawing.Point(38, 100);
+            this.resetDescriptionLabel.Location = new System.Drawing.Point(40, 105);
             this.resetDescriptionLabel.Name = "resetDescriptionLabel";
             this.resetDescriptionLabel.Size = new System.Drawing.Size(269, 40);
             this.resetDescriptionLabel.TabIndex = 23;

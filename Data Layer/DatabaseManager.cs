@@ -1,4 +1,6 @@
 ﻿using CopyBase.Data_Layer.DataModel;
+using CopyBase.Data_Layer.DataModel.EGT.mitDk;
+using CopyBase.Data_Layer.DataModel.TestDb;
 using CopyBase.Data_Layer.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
@@ -8,37 +10,44 @@ namespace CopyBase.Data_Layer
     {
         public void CloneDatabase(string databaseToClone, string clonedDbName, string clonedDbDirectory, string connectionString)
         {
-            //Create an instance of the DataContext class with the appropriate DbContextOptions
-            var optionsBuilder = new DbContextOptionsBuilder<DataContext>();
-            optionsBuilder.UseSqlServer(connectionString);
-            using var dbContext = new DataContext(optionsBuilder.Options);
 
-            //Call EnsureCreated() method to create the database schema
-            dbContext.Database.EnsureCreated();
-
-            //Use DBContext to seed data
             switch (databaseToClone)
             {
                 case "EGT.mitDk":
+                {
+                    //Creating instance of the DataContext class with the fitting options
+                    var optionsBuilder = new DbContextOptionsBuilder<DataContextEGTmitdk>();
+                    optionsBuilder.UseSqlServer(connectionString);
+                    using var dbContext = new DataContextEGTmitdk(optionsBuilder.Options);
+
+                    //Seed
                     SeedDataEGTmitdk(dbContext);
+                    //Create db
+                    dbContext.Database.EnsureCreated();
+                    //Save changes
+                    dbContext.SaveChanges();
                     break;
-                case "Salary":
-                    //SeedDataSalary(dbContext);
+                }
+                case "TestDb":
+                {
+                    var optionsBuilder = new DbContextOptionsBuilder<DataContextTestDb>();
+                    optionsBuilder.UseSqlServer(connectionString);
+                    using var dbContext = new DataContextTestDb(optionsBuilder.Options);
+                        
+                    SeedDataTestDb(dbContext);
+                    dbContext.Database.EnsureCreated();
+                    dbContext.SaveChanges();
                     break;
+                }
             }
-
-            //Save changes
-            dbContext.SaveChanges();
-
             ClonedDatabase cd = new ClonedDatabase(databaseToClone, clonedDbName, clonedDbDirectory, connectionString);
-
         }
 
         public void DeleteClonedDatabase()
         {
             using var dbContext = new DbContext(new DbContextOptionsBuilder().UseSqlServer(ClonedDatabase.ConnectionString).Options);
 
-            // Close all existing connections to the database and drop
+            //Close existing connections
             dbContext.Database.ExecuteSqlRaw($@"ALTER DATABASE [{ClonedDatabase.ClonedDatabaseName}] SET SINGLE_USER WITH ROLLBACK IMMEDIATE");
             dbContext.Database.EnsureDeleted();
 
@@ -56,7 +65,7 @@ namespace CopyBase.Data_Layer
             CloneDatabase(databaseToClone,clonedDbName,clonedDbDirectory,connectionString);
         }
 
-        public static void SeedDataEGTmitdk(DataContext dbContext)
+        public static void SeedDataEGTmitdk(DataContextEGTmitdk dbContext)
         {
             var EGTTransmissions = new List<EGTTransmission>
             {
@@ -119,6 +128,38 @@ namespace CopyBase.Data_Layer
 
             dbContext.EGTTransmission.AddRange(EGTTransmissions);
             dbContext.PayslipReceipt.AddRange(payslipReceipts);
+        }
+
+        public static void SeedDataTestDb(DataContextTestDb dbContext)
+        {
+            var Table1 = new List<Table1>
+            {
+                new Table1
+                {
+                    Name = "John", Age = 22
+                },
+                new Table1
+                {
+                    Name = "Mike", Age = 40
+
+                },
+            };
+
+            var Table2 = new List<Table2>
+            {
+                new Table2
+                {
+                    Product = "Book", Price = 100
+                },
+                new Table2
+                {
+                    Product = "Game", Price = 50
+
+                },
+            };
+
+            dbContext.Table1.AddRange(Table1);
+            dbContext.Table2.AddRange(Table2);
         }
     }
 }

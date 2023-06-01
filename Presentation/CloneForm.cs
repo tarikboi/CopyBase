@@ -25,8 +25,7 @@ namespace CopyBase
             allFieldsErrorLabel.Text = "";
         }
         
-        private void cloneButton_Click(object sender, EventArgs e)
-        {
+        private void cloneButton_Click(object sender, EventArgs e) {
             if (_cloneManager.UserHasPermission(DbToCloneMenu.Text, User.Email))
             {
                 //Check if all fields have text
@@ -40,7 +39,6 @@ namespace CopyBase
                     {
                         clonedDbNameTextBox.BorderColor = Color.Red;
                     }
-
                     if (clonedDbDirTextBox.Text.Equals(""))
                     {
                         clonedDbDirTextBox.BorderColor = Color.Red;

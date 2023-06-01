@@ -54,7 +54,7 @@
             this.exitProgramLabel.AutoSize = true;
             this.exitProgramLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.exitProgramLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.exitProgramLabel.Location = new System.Drawing.Point(141, 49);
+            this.exitProgramLabel.Location = new System.Drawing.Point(141, 48);
             this.exitProgramLabel.Name = "exitProgramLabel";
             this.exitProgramLabel.Size = new System.Drawing.Size(56, 30);
             this.exitProgramLabel.TabIndex = 20;
@@ -65,7 +65,7 @@
             // 
             this.exitDescriptionLabel.AutoSize = true;
             this.exitDescriptionLabel.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.exitDescriptionLabel.Location = new System.Drawing.Point(41, 101);
+            this.exitDescriptionLabel.Location = new System.Drawing.Point(40, 105);
             this.exitDescriptionLabel.Name = "exitDescriptionLabel";
             this.exitDescriptionLabel.Size = new System.Drawing.Size(269, 40);
             this.exitDescriptionLabel.TabIndex = 21;

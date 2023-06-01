@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace CopyBase.Data_Layer.DataModel
+namespace CopyBase.Data_Layer.DataModel.EGT.mitDk
 {
     internal class EGTTransmission
     {

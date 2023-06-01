@@ -41,7 +41,7 @@
             // 
             this.deleteDescriptionLabel.AutoSize = true;
             this.deleteDescriptionLabel.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.deleteDescriptionLabel.Location = new System.Drawing.Point(43, 104);
+            this.deleteDescriptionLabel.Location = new System.Drawing.Point(40, 105);
             this.deleteDescriptionLabel.Name = "deleteDescriptionLabel";
             this.deleteDescriptionLabel.Size = new System.Drawing.Size(269, 40);
             this.deleteDescriptionLabel.TabIndex = 7;
@@ -53,7 +53,7 @@
             this.deleteDatabaseLabel.AutoSize = true;
             this.deleteDatabaseLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.deleteDatabaseLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.deleteDatabaseLabel.Location = new System.Drawing.Point(80, 52);
+            this.deleteDatabaseLabel.Location = new System.Drawing.Point(80, 48);
             this.deleteDatabaseLabel.Name = "deleteDatabaseLabel";
             this.deleteDatabaseLabel.Size = new System.Drawing.Size(196, 30);
             this.deleteDatabaseLabel.TabIndex = 6;

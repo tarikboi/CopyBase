@@ -67,13 +67,10 @@ namespace CopyBase.Domain
         //Takes user email, hashes it and returns the unique code based on user email
         public static string GenerateRememberMeCode(string email)
         { 
-            // Create a new instance of the SHA256 hashing algorithm
             using (SHA256 sha256Hash = SHA256.Create())
             {
-                // Compute the hash of the combined string
                 byte[] bytes = sha256Hash.ComputeHash(Encoding.UTF8.GetBytes(email));
 
-                // Convert the hash to a string representation
                 StringBuilder builder = new StringBuilder();
                 for (int i = 0; i < bytes.Length; i++)
                 {
@@ -97,7 +94,7 @@ namespace CopyBase.Domain
                 windowsUserEmailAddress = UserPrincipal.Current.EmailAddress;
                 windowsUserRememberMeCode = GenerateRememberMeCode(windowsUserEmailAddress);
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 return false;
             }
